@@ -3,12 +3,12 @@ import { sequelize } from '../database/connection.js'
 import { Course } from './course.model.js'
 
 export const ClassMaterial = sequelize.define('ClassMaterial', {
-  CMId: {
+  cmId: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true
   },
-  CourseId: {
+  courseId: {
     type: DataTypes.INTEGER
   },
   tittle: {
@@ -21,11 +21,11 @@ export const ClassMaterial = sequelize.define('ClassMaterial', {
   }
 })
 Course.hasMany(ClassMaterial, {
-  foreignKey: 'CourseId',
-  sourceKey: 'CourseId'
+  foreignKey: 'courseId',
+  sourceKey: 'courseId'
 })
 
 ClassMaterial.belongsTo(Course, {
-  foreignKey: 'CourseId',
-  targetKey: 'CourseId'
+  foreignKey: 'courseId',
+  targetKey: 'courseId'
 })

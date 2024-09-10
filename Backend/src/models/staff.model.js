@@ -2,19 +2,19 @@ import { DataTypes } from 'sequelize'
 import { sequelize } from '../database/connection.js'
 import { Person } from './person.model.js'
 
-export const AdministrativeSt = sequelize.define('AdministrativeSt', {
+export const Staff = sequelize.define('Staff', {
   personId: {
     type: DataTypes.BIGINT,
     primaryKey: true
   }
 })
 
-Person.hasOne(AdministrativeSt, {
+Person.hasOne(Staff, {
   foreignKey: 'personId',
   sourceKey: 'id'
 })
 
-AdministrativeSt.belongsTo(Person, {
+Staff.belongsTo(Person, {
   foreignKey: 'personId',
   targetKey: 'id'
 })
