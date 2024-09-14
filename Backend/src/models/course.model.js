@@ -12,12 +12,12 @@ export const Course = sequelize.define('Course', {
   teacherId: {
     type: DataTypes.BIGINT
   },
-  id: {
+  asId: {
     type: DataTypes.INTEGER
-  },
-  Assistance: {
-    type: DataTypes.BOOLEAN
   }
+  // Assistance: {
+  //   type: DataTypes.BOOLEAN
+  // }
 })
 
 Teacher.hasMany(Course, {

@@ -62,22 +62,7 @@ export class AssignmentController {
       const { asId } = req.params
       const assignment = await Assignment.findByPk(asId)
       assignment.set(req.body)
-
-      //   const { email } = req.body
-      //   const cred = await Credential.findByPk(id)
-      //   if (cred.email.toLowerCase() !== email.toLowerCase()) {
-      //     const oldCred = await Credential.findOne({
-      //       where: {
-      //         email: { [Op.iLike]: email }
-      //       }
-      //     })
-      //     if (oldCred) {
-      //       return res.status(400).json({ message: 'Email is already in use' })
-      //     }
-      //   }
-      //   cred.email = email
       await assignment.save()
-      //   await cred.save()
       res.status(202).json(assignment)
     } catch (error) {
       return res.status(500).json({ mesaage: error.message })

@@ -1,5 +1,5 @@
 import { sequelize } from '../database/connection.js'
-import { Enroll } from './enroll.mode.js'
+import { Enroll } from './enroll.model.js'
 import { Course } from './course.model.js'
 
 export const EnrollCourse = sequelize.define('EnrollCourse', {

@@ -5,6 +5,7 @@ import { Student } from './student.model.js'
 export const Enroll = sequelize.define('Enroll', {
   enrollID: {
     type: DataTypes.INTEGER,
+    autoIncrement: true,
     primaryKey: true
   },
   studentId: {
