@@ -92,7 +92,8 @@ main {
 }
 
 #admin2 {
-    height: 20rem;
+    width: 30%;
+    margin-left: 24%;
 }
 
 #welcome {
@@ -106,11 +107,16 @@ main {
     padding-right: 15rem;
 }
 
+#welcome h1 {
+    font-size: 5rem;
+    
+}
+
 #features p {
     font-size: xx-large;
 }
 
-article:hover {
+main article:hover {
     color: white;
     cursor: pointer;
 }
@@ -123,4 +129,38 @@ article:hover {
     width: 30%;
     margin-left: 24%;
     cursor: pointer;
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: white;
+}
+
+#home_img {
+    height: 30rem;
+    margin-left: 20rem;
+}
+
+#section2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: #003366;
+}
+
+#section2 article {
+    width: 30%;
+    height: 7rem;
+    background-color: #BFCAD7;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+#section2 h2 {
+    text-align: center;
+}
+
+#welcome h1 {
+   margin-left: 15rem;
 }
