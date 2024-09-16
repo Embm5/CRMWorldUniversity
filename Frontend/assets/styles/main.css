@@ -1,0 +1,104 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    color: black;
+    background-image: url('../../assets/img/background.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #003366;
+    background-position: center;
+}
+
+.grid-container{
+    height: 300vh;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 0.5fr 1fr 3fr 0.7fr;
+}
+
+
+/*header*/
+
+.logo{
+    width: 10em;
+    height: 9em;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+    background-color: #BFCAD7;
+}
+
+.flex-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button{
+    font-size: large;
+    border-radius: 30px;
+    border: none;
+    padding: 0.7em 2.1em;
+    background-color: #ffffff;
+}
+
+.icon_person{
+    width: 5em;
+    height: 5em;
+}
+
+
+/*aside*/
+
+.aside{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 0 30px;
+}
+
+.aside p {
+    color: #003366;
+    font-size: 4em;
+}
+
+
+/*main*/
+
+.main{
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*footer*/
+
+.footer{
+    background-color: #BFCAD7;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 40px;
+}
+
+.social{
+    text-align: center;
+}
+
+.icons{
+    display: flex;
+    justify-content: space-around;
+}
+
+.social i {
+    font-size: 2em;
+}
