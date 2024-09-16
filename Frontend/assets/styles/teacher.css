@@ -1,0 +1,70 @@
+main{
+    text-align: center;
+}
+
+.img-aside {
+    width: 20em;
+    height: 13em;
+}
+
+.item{
+    width: 5em;
+    height: 5em;
+}
+
+.grid-item1{
+    grid-area: a;
+}
+
+.grid-item2{
+    grid-area: b;
+}
+
+.grid-item3{
+    grid-area: c;
+}
+
+.grid-item4{
+    grid-area: d;
+}
+
+.grid-item5{
+    grid-area: e;
+}
+
+.grid-item6{
+    grid-area: f;
+    width: 15em;
+    height: 20em;
+}
+
+.grid-container1{
+    display: grid;
+    gap: 1em;
+    grid-template-areas: 
+    "a e"
+    "b e"
+    "c f"
+    "d f";
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    width: 20em;
+    height: 10em;
+    /* border-radius: 1em; */
+}
+
+.card1{
+    width: 20em;
+    height: 21em;
+}
+
+.card-family{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+}
