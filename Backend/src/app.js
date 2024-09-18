@@ -6,6 +6,7 @@ import { teacherRouters } from './routes/teacher.routes.js'
 import { staffRouters } from './routes/staff.routes.js'
 import { assignmentRouters } from './routes/assignment.routes.js'
 import { courseRouters } from './routes/course.routes.js'
+import { classMaterialRouters } from './routes/classMaterial.routes.js'
 
 export const app = express()
 
@@ -17,3 +18,4 @@ app.use(teacherRouters)
 app.use(staffRouters)
 app.use(assignmentRouters)
 app.use(courseRouters)
+app.use(classMaterialRouters)

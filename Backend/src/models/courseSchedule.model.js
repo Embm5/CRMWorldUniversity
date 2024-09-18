@@ -2,19 +2,25 @@ import { DataTypes } from 'sequelize'
 import { sequelize } from '../database/connection.js'
 import { Course } from './course.model.js'
 export const CourseSchedule = sequelize.define('CourseSchedule', {
-  courseId: {
+  scheduleId: {
     type: DataTypes.INTEGER,
-    primaryKey: true
+    primaryKey: true,
+    autoIncrement: true
   },
-  DayOfWeek: {
+  day: {
     type: DataTypes.STRING,
-    primaryKey: true
+    allowNull: false
   },
-  startHour: {
-    type: DataTypes.TIME
+  startTime: {
+    type: DataTypes.TIME,
+    allowNull: false
   },
-  endHour: {
-    type: DataTypes.TIME
+  endTime: {
+    type: DataTypes.TIME,
+    allowNull: false
+  },
+  courseId: {
+    type: DataTypes.INTEGER
   }
 })
 Course.hasMany(CourseSchedule, {
