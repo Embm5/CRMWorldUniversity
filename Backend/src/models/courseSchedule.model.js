@@ -7,22 +7,22 @@ export const CourseSchedule = sequelize.define('CourseSchedule', {
     primaryKey: true,
     autoIncrement: true
   },
-  day: {
+  day: { //dia o dias en que se va a ver
     type: DataTypes.STRING,
     allowNull: false
   },
-  startTime: {
+  startTime: { //hora en que empieza la clase
     type: DataTypes.TIME,
     allowNull: false
   },
-  endTime: {
+  endTime: { //hor aen que termina la clase
     type: DataTypes.TIME,
     allowNull: false
   },
-  courseId: {
+  courseId: { //
     type: DataTypes.INTEGER
   },
-  room: {
+  room: { //salon en que se va a ver
     type: DataTypes.STRING,
     allowNull: false
   }
