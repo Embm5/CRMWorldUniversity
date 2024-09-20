@@ -50,14 +50,6 @@ h3 {
     display: inline-block;
 }
 
-main {
-    display: flex;
-    align-items: center;
-    padding: 0.5rem;
-    background-color: #003366;
-    padding-left: 18rem;
-}
-
 .social_media {
     height: 2rem;
 }
@@ -67,19 +59,60 @@ main {
     padding-left: 0;
 }
 
-#features {
-    display: inline-flex;
-    flex-direction: column;
-    width: 30rem;
+#main_student {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: #003366;
+    padding-left: 33rem;
 }
 
-#features article{
+#features_student {
+    display: inline-flex;
+    flex-direction: column;
+    width: 60rem;
+}
+
+#features_student article{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0.2rem;
     padding: 1rem;
     background-color: #BFCAD7;
+    border-radius: 1rem;
+}
+
+#main_admin {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: #003366;
+    padding-left: 34rem;
+}
+
+#features_admin {
+    display: inline-flex;
+    flex-direction: column;
+    width: 30rem;
+}
+
+#features_admin article{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.2rem;
+    padding: 1rem;
+    background-color: #BFCAD7;
+    border-radius: 1rem;
+}
+
+#main_home {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: #003366;
+    padding-left: 38rem;
 }
 
 #main_image{
@@ -112,7 +145,7 @@ main {
     
 }
 
-#features p {
+.features_p {
     font-size: xx-large;
 }
 
@@ -139,7 +172,6 @@ nav {
 
 #home_img {
     height: 30rem;
-    margin-left: 20rem;
 }
 
 #section2 {
@@ -164,4 +196,3 @@ nav {
 #welcome h1 {
    margin-left: 15rem;
 }
-
