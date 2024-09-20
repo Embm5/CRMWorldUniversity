@@ -21,8 +21,22 @@ export const CourseSchedule = sequelize.define('CourseSchedule', {
   },
   courseId: {
     type: DataTypes.INTEGER
+  },
+  room: {
+    type: DataTypes.STRING,
+    allowNull: false
   }
 })
+// }, {
+
+//   indexes: [
+//     {
+//       unique: true,
+//       fields: ['day', 'startTime', 'endTime', 'salon']
+//     }
+//   ]
+// })
+
 Course.hasMany(CourseSchedule, {
   foreignKey: 'courseId',
   sourceKey: 'courseId'
