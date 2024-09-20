@@ -23,4 +23,3 @@ schedule.addEventListener('click', () => {
 enrollment.addEventListener('click', () => {
     window.location.href = '/enrollment';
 });
-
