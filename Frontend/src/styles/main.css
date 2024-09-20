@@ -198,4 +198,10 @@ a {
     text-decoration: none;
 }
 
+button:hover, 
+a:hover,
+.icons i:hover{
+    color: grey;
+}
+
 
