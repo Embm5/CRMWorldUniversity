@@ -102,3 +102,26 @@ body{
 .social i {
     font-size: 2em;
 }
+
+/*effects*/
+
+button,
+.effect {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.effect:hover, .icons i {
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
