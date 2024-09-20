@@ -5,21 +5,21 @@ const schedule = document.querySelector('#download_schedule');
 const enrollment = document.querySelector('#enrollment');
 
 course.addEventListener('click', () => {
-    window.location.href = '/course';
+    window.location.href = '/Frontend/src/views/student/course.html';
 });
 
 qualifications.addEventListener('click', () => {
-    window.location.href = '/qualifications';
+    window.location.href = '/Frontend/src/views/student/qualifications.html';
 });
 
 attendance.addEventListener('click', () => {
-    window.location.href = '/attendance';
+    window.location.href = '/Frontend/src/views/student/attendance.html';
 });
 
 schedule.addEventListener('click', () => {
-    window.location.href = '/schedule';
+    window.location.href = '/Frontend/src/views/student/schedule.html';
 });
 
 enrollment.addEventListener('click', () => {
-    window.location.href = '/enrollment';
+    window.location.href = '/Frontend/src/views/student/enrollment.html';
 });
