@@ -1,0 +1,80 @@
+
+
+.main{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.grid-container{
+    height: 300vh;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 0.5fr 1fr 0.2fr 3fr 0.7fr;
+}
+
+.nav {
+    background-color: #024873;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-family: "Inter", sans-serif;
+}
+
+nav a {
+    color: #ffffff;
+}
+
+.chart{
+    background-color: #ffffff;
+    height: 120vh;
+    width: 80%;
+    border-radius: 30px;
+    display: none;
+    grid-template-rows: .2fr 1fr;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.chart h3{
+    font-size: 3em;
+    color: #003366;
+}
+
+.active{
+    display: grid;
+}
+
+.chart1{
+    background-color: #ffffff;
+    height: 100vh;
+    width: 50%;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    justify-self: center;
+    align-self: center;
+}
+
+.chart1 i{
+    font-size: 5em;
+}
+
+.img-aside{
+    width: 20em;
+    height: 20em;
+}
+
+
+
+
