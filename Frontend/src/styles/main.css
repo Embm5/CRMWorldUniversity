@@ -1,3 +1,6 @@
+
+
+
 body{
     margin: 0;
     padding: 0;
@@ -12,18 +15,18 @@ body{
 }
 
 .grid-container{
-    height: 200vh;
+    height: 250vh;
     width: 100%;
     display: grid;
-    grid-template-rows: 0.3fr 0.5fr 1.5fr 0.3fr;
+    grid-template-rows: 0.3fr 0.4fr 0.1fr 1.5fr 0.2fr;
 }
 
 
 /*header*/
 
 .logo{
-    width: 10em;
-    height: 9em;
+    width: 10rem;
+    height: 9rem;
 }
 
 .header{
@@ -44,13 +47,13 @@ body{
     font-size: large;
     border-radius: 30px;
     border: none;
-    padding: 0.7em 2.1em;
+    padding: 0.7rem 2.1rem;
     background-color: #ffffff;
 }
 
 .icon_person{
-    width: 5em;
-    height: 5em;
+    width: 5rem;
+    height: 5rem;
 }
 
 
@@ -64,9 +67,39 @@ body{
     padding: 0 30px;
 }
 
-.aside p {
+.title {
     color: #003366;
-    font-size: 4em;
+    font-size: 4rem;
+}
+
+.img-aside{
+    /* width: ancho que quiera en rem; */
+    /* height: altura que quiera en rem; */
+    width: 23rem;
+    height: 15rem;
+}
+
+
+/*nav*/
+
+.nav {
+    background-color: #024873;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+}
+
+.feature {
+    color: #ffffff;
 }
 
 
@@ -80,6 +113,48 @@ body{
 }
 
 
+/*charts*/
+
+.first-chart{
+    background-color: #ffffff;
+    height: 60vh;
+    width: 50%;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    justify-self: center;
+    align-self: center;
+}
+
+.first-chart i{
+    font-size: 5em;
+}
+
+.chart{
+    background-color: #ffffff;
+    height: 120vh;
+    width: 80%;
+    border-radius: 30px;
+    display: none;
+    grid-template-rows: .2fr 1fr;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.chart h3{
+    font-size: 3rem;
+    color: #003366;
+}
+
+.active{
+    display: grid;
+}
+
+
 /*footer*/
 
 .footer{
@@ -88,6 +163,10 @@ body{
     justify-content: space-between;
     align-items: flex-start;
     padding: 10px 40px;
+}
+
+.footer a {
+    color: black;
 }
 
 .social{
@@ -99,14 +178,14 @@ body{
     justify-content: space-around;
 }
 
-.social i {
-    font-size: 2em;
+.icons i {
+    font-size: 2rem;
+    cursor: pointer;
 }
 
 /*effects*/
 
-button,
-.effect {
+button {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -115,13 +194,8 @@ button:hover {
     cursor: pointer;
 }
 
-.effect:hover, .icons i {
-    border-radius: 30px;
-    cursor: pointer;
+a {
+    text-decoration: none;
 }
 
-a{
-    text-decoration: none;
-    color: black;
-}
 
