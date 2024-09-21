@@ -13,12 +13,13 @@ export class AssignmentController {
 
   createAssignment = async (req, res) => {
     try {
-      const { asId, name } = req.body
+      const { asId, name, semester } = req.body
       const assignment = await Assignment.findByPk(asId)
       if (!assignment) {
         const newAssignment = await Assignment.create({
           asId,
-          name
+          name,
+          semester
         })
 
         return res.status(201).json({ newAssignment })

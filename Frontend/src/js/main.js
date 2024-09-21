@@ -1,7 +1,7 @@
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    const links = document.querySelectorAll('nav a');
+    const links = document.querySelectorAll('.feature');
     const charts = document.querySelectorAll('.chart');
 
     links.forEach(link => {

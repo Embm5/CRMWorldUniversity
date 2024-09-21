@@ -8,5 +8,9 @@ export const Assignment = sequelize.define('Assignment', {
   },
   name: {
     type: DataTypes.STRING
+  },
+  semester: {
+    type: DataTypes.STRING,
+    allowNull: false
   }
 })
