@@ -1,24 +1,9 @@
-
-.img-aside {
-    width: 10em;
-    height: 15em;
-}
-
-.sections{
-    padding-top: 30px;
-}
-
-.sections section{
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.manage-form {
+/* Estilo del formulario en chart-2 */
+#chart-2 .managecourse-form {
     display: flex;
     flex-direction: column;
-    width: 20rem;
+    max-width: 600px;
+    margin: 0 auto; /* Centra el formulario */
     padding: 2rem;
     border: 2px solid #003366;
     border-radius: 10px;
@@ -26,19 +11,22 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.manage-form label {
+/* Estilo para etiquetas */
+#chart-2 .managecourse-form label {
     margin-bottom: 0.5rem;
     font-weight: bold;
 }
 
-.manage-form input {
+/* Estilo para campos de texto */
+#chart-2 .managecourse-form input {
     padding: 0.8rem;
     margin-bottom: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.staff-button {
+/* Estilo para botones */
+.admin-button {
     background-color: #003366;
     color: white;
     padding: 0.8rem;
@@ -48,11 +36,7 @@
     margin-top: 1rem;
 }
 
-.staff-button:hover {
+/* Hover para botones */
+.admin-button:hover {
     background-color: #002244;
-}
-
-.table thead {
-    background-color: #003366;
-    color: white;
 }

@@ -9,10 +9,10 @@ export const Course = sequelize.define('Course', {
     primaryKey: true,
     autoIncrement: true
   },
-  teacherId: {
+  teacherId: { 
     type: DataTypes.BIGINT
   },
-  asId: {
+  asId: { 
     type: DataTypes.INTEGER
   }
 

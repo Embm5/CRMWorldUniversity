@@ -4,59 +4,205 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../../img/Logo.png">
-    <link rel="stylesheet" href="../../styles/staff.css">
     <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/staff.css">
+    <title>Staff Dashboard</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Staff Home</title>
 </head>
 <body class="grid-container">
     <header class="header">
-        <img src="../../img/Logo.png" alt="" class="logo">
+        <a href="../../views/home/home.html">
+            <img src="../../img/Logo.png" alt="" class="logo">
+        </a>
         <div class="flex-container">
             <button class="button">Staff</button>
-            <img src="../../img/icon_person.png" alt="" class="icon_person">
+            <img src="../../img/iconperson.png" alt="" class="icon-person">
         </div>
     </header>
+
     <aside class="aside">
-        <p>Welcome Staff</p>
+        <p class="title">Welcome Staff</p>
         <img src="../../img/director.png" alt="" class="img-aside">
     </aside>
+
+    <nav class="nav">
+        <section class="list second-header">
+            <p><b>
+                <a href="#chart-0" class="feature">Start</a>
+                |
+                <a href="#chart-1" class="feature">Enrollment Management</a>
+                |
+                <a href="#chart-2" class="feature">See Courses</a>
+                |
+                <a href="#chart-3" class="feature">See Teachers</a>
+                |
+                <a href="#chart-4" class="feature">See Students</a> 
+            </b></p>
+        </section>
+    </nav>
+
     <main class="main">
-        <div class="flex-container1">
-            <div class="flex-container2">
-                <div class="flex-container3">
-                    <p class="title effect">Reports</p>
-                    <img src="../../img/report.png" alt="" class="img1">
+        <section class="first-chart" id="chart-0">
+            <i class='bx bxs-hand-up'></i>
+            <h3>What do you want to do?</h3>
+        </section>
+        <section class="chart" id="chart-1">
+            <h3>Enrollment Management</h3>
+            <div class="div-chart">
+                <div class="list crud">
+                    <a href="#create" class="crud-link">Create</a>
+                    <a href="#close" class="crud-link">Close</a>
                 </div>
-                <div class="flex-container3">
-                    <p class="title effect">Manage</p>
-                    <img src="../../img/teacher.png" alt="" class="img2">
+                <div class="sections">
+                    <section id="create" class="chart1">
+                        <form action="" class="manage-form">
+                            <label for="enroll-id">Enroll ID</label>
+                            <input type="number" name="enroll-id" id="enroll-id" required>
+                            
+                            <label for="course-id">Course ID</label>
+                            <input type="number" name="course-id" id="course-id" required>
+                            
+                            <button onclick="alert('The registration has been created successfully')" type="submit" class="staff-button">Submit</button>
+                            <!-- <button type="button" class="staff-button">Consult</button> -->
+                            <!-- <button type="button" class="staff-button">Delete</button> -->
+                        </form>
+                    </section>
+                    <section class="chart1" id="close">
+                        <button onclick="alert('The semester has closed successfully')" class="staff-button">Close Semester</button>
+                    </section>
                 </div>
             </div>
-            <img src="../../img/people.png" alt="" class="people">
-        </div>
+        </section>
+        <section class="chart" id="chart-2">
+            <h3>List of Courses</h3>
+            <div class="div-chart">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Course ID</th>
+                            <th>Course Name</th>
+                            <th>Teacher ID</th>
+                            <th>Teacher Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Math</td>
+                            <td>1</td>
+                            <td>John Doe</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Science</td>
+                            <td>2</td>
+                            <td>Jane Doe</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>History</td>
+                            <td>3</td>
+                            <td>John Smith</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="chart" id="chart-3">
+            <h3>List of Teachers</h3>
+            <div class="div-chart">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Teacher ID</th>
+                            <th>Teacher Name</th>
+                            <th>Course ID</th>
+                            <th>Course Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>John Doe</td>
+                            <td>1</td>
+                            <td>Math</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Jane Doe</td>
+                            <td>2</td>
+                            <td>Science</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>John Smith</td>
+                            <td>3</td>
+                            <td>History</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="chart" id="chart-4">
+            <h3>List of Students</h3>
+            <div class="div-chart">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Student 1</td>
+                            <td>10</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>Student 2</td>
+                            <td>12</td>
+                            <td>6</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
     </main>
+
     <footer class="footer">
         <div>
             <h3>Contact Us</h3>
-            <p>Site</p>
-            <p>Number 1</p>
-            <p>Number 2</p>
+            <p>43, Av. Carabobo #42, Medellin, Antioquia</p>
+            <p>(604) 444 76 54</p>
+            <p>Whatsapp: (57) 3008848512</p>
         </div>
-        <div>
+        <div class="about">
             <h3>About Us</h3>
-            <a href="../pages/home.html">Home</a>
-            <p>Mission</p>
-            <p>Vision</p>
+            <a href="../../views/home/home.html">Home</a>
+            <a href="../../views/home/home.html#mission">Mission</a>
+            <a href="../../views/home/home.html#vision">Vision</a>
         </div>
         <div class="social">
             <h3>Our Social Networks</h3>
             <div class="icons">
-                <i class='bx bxl-facebook'></i>
-                <i class='bx bxl-youtube' ></i>
-                <i class='bx bxl-instagram-alt' ></i>
+                <a href="https://www.facebook.com/">
+                    <i class='bx bxl-facebook'></i>
+                </a>
+                <a href="https://www.youtube.com/">
+                    <i class='bx bxl-youtube' ></i>
+                </a>
+                <a href="https://www.instagram.com/">
+                    <i class='bx bxl-instagram-alt' ></i>
+                </a>
             </div>
         </div>
     </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/staff.js"></script>
 </body>
 </html>
+
+

@@ -1,18 +1,17 @@
 
-
 document.addEventListener('DOMContentLoaded', function() {
-    const links = document.querySelectorAll('nav a');
-    const charts = document.querySelectorAll('.chart');
+    var links = document.querySelectorAll('.feature');
+    var charts = document.querySelectorAll('.chart');
 
     links.forEach(link => {
         link.addEventListener('click', function(event) {
             event.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
+            var targetId = this.getAttribute('href').substring(1);
             charts.forEach(chart => {
                 if (chart.id === targetId) {
-                    chart.classList.add('active');
+                    chart.style.display = 'grid';
                 } else {
-                    chart.classList.remove('active');
+                    chart.style.display = 'none';
                 }
             });
         });
