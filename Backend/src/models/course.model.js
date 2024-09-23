@@ -15,9 +15,7 @@ export const Course = sequelize.define('Course', {
   asId: {
     type: DataTypes.INTEGER
   }
-  // Assistance: {
-  //   type: DataTypes.BOOLEAN
-  // }
+
 })
 
 Teacher.hasMany(Course, {

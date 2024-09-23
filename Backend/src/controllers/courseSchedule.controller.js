@@ -2,7 +2,7 @@ import { Person } from '../models/person.model.js'
 import { Teacher } from '../models/teacher.model.js'
 import { Assignment } from '../models/assignment.model.js'
 import { Course } from '../models/course.model.js'
-import { CourseSchedule } from '../models/courseschedule.model.js'
+import { CourseSchedule } from '../models/courseSchedule.model.js'
 
 export class CourseScheduleController {
   getAllCourses = async (req, res) => {
@@ -58,6 +58,58 @@ export class CourseScheduleController {
       }
 
       res.status(200).json(course)
+    } catch (error) {
+      return res.status(500).json({ message: error.message })
+    }
+  }
+
+  getCoursesByAssignment = async (req, res) => {
+    try {
+      const { assignmentId } = req.params
+
+      const courses = await CourseSchedule.findAll({
+        where: { asId: assignmentId },
+        include: [
+          {
+            model: Course,
+            include: [{ model: Assignment }]
+          }
+        ]
+      })
+
+      if (courses.length > 0) {
+        res.status(200).json(courses)
+      } else {
+        res.status(404).json({ message: 'No courses found for this assignment.' })
+      }
+    } catch (error) {
+      return res.status(500).json({ message: error.message })
+    }
+  }
+
+  getCoursesByTeacher = async (req, res) => {
+    try {
+      const { teacherId } = req.params
+
+      const courses = await Course.findAll({
+        where: { teacherId },
+        include: [
+          {
+            model: Teacher,
+            attributes: ['personId'],
+            include: [{ model: Person, attributes: ['firstName', 'lastName1', 'lastName2'] }]
+          },
+          {
+            model: CourseSchedule,
+            attributes: ['day', 'startTime', 'endTime', 'classroom']
+          }
+        ]
+      })
+
+      if (!courses || courses.length === 0) {
+        return res.status(404).json({ message: 'No courses found for this teacher' })
+      }
+      return res.status(200).json(courses)
     } catch (error) {
       return res.status(500).json({ message: error.message })
     }

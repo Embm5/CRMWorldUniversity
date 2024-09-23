@@ -4,10 +4,6 @@ import { Course } from './course.model.js'
 import { DataTypes } from 'sequelize'
 
 export const EnrollCourse = sequelize.define('EnrollCourse', {
-  status: {
-    type: DataTypes.ENUM('ACTIVE', 'INACTIVE'),
-    defaultValue: 'ACTIVE'
-  },
 
   aprroved: {
     type: DataTypes.BOOLEAN,

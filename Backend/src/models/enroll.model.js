@@ -10,7 +10,12 @@ export const Enroll = sequelize.define('Enroll', {
   },
   studentId: {
     type: DataTypes.BIGINT
+  },
+  status: {
+    type: DataTypes.ENUM('ACTIVE', 'INACTIVE'),
+    defaultValue: 'ACTIVE'
   }
+
 })
 
 Student.hasMany(Enroll, {
