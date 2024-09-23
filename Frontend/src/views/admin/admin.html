@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../../img/Logo.png">
     <link rel="stylesheet" href="../../styles/main.css">
-    <link rel="stylesheet" href="../../styles/david2.css">
+    <link rel="stylesheet" href="../../styles/staff.css">
     <title>Admin</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -30,8 +30,6 @@
     <nav class="nav">
         <section class="list">
             <p><b>
-                <a href="#chart-1" class="feature">Course Material</a>
-                |
                 <a href="#chart-2" class="feature">Manage Courses</a>
                 |
                 <a href="#chart-3" class="feature">Subjects</a>
@@ -48,28 +46,10 @@
             <i class='bx bxs-hand-up'></i>
             <h3>What do you want to do?</h3>
         </section>
-        <section class="chart" id="chart-1">
-            <h3>Course Material</h3>
-            <div class="div-chart">
-                <form action="" class="admin-form">
-                    <label for="subject-id">Course ID</label>
-                    <input type="text" name="subject-id" id="subject-id">
-                    <label for="course-material-id">Course Material ID</label>
-                    <input type="text" name="course-material-id" id="course-material-id">
-                    <label for="material-tittle">Material Tittle</label>
-                    <input type="text" name="material-tittle" id="material-tittle">
-                    <label for="material-description">Material Description</label>
-                    <input type="text" name="material-description" id="material-description">
-                    <button class="admin-button" id="course-button">Consult</button>
-                    <button class="admin-button" id="course-button">Submit</button>
-                    <button class="admin-button" id="course-button">Delete</button>
-                </form>
-            </div>
-        </section>
         <section class="chart" id="chart-2">
             <h3>Manage Courses</h3>
             <div class="div-chart">
-                <form action="" class="admin-form">
+                <form action="" class="manage-form">
                     <label for="subject-id">Subject ID</label>
                     <input type="text" name="subject-id" id="subject-id">
                     <label for="course-id">Course ID</label>
@@ -86,29 +66,29 @@
                     <input type="text" name="room" id="room">
                     <label for="schedule-id">Schedule ID</label>
                     <input type="text" name="schedule-id" id="schedule-id">
-                    <button class="admin-button" id="subject-button">Consult</button>
-                    <button class="admin-button" id="subject-button">Submit</button>
-                    <button class="admin-button" id="subject-button">Delete</button>
+                    <button class="staff-button" id="subject-button">Consult</button>
+                    <button class="staff-button" id="subject-button">Submit</button>
+                    <button class="staff-button" id="subject-button">Delete</button>
                 </form>
             </div>
         </section>
         <section class="chart" id="chart-3">
             <h3>Subjects</h3>
-            <form action="" class="admin-form">
+            <form action="" class="manage-form">
                 <label for="subject-id">Subject ID</label>
                 <input type="text" name="subject-id" id="subject-id">
                 <label for="subject-name">Subject Name</label>
                 <input type="text" name="subject-name" id="subject-name">
                 <label for="subject-semester">Subject Semester</label>
                 <input type="number" name="subject-semester" id="subject-semester">
-                <button class="admin-button" id="subject-button">Consult</button>
-                <button class="admin-button" id="subject-button">Submit</button>
-                <button class="admin-button" id="subject-button">Delete</button>
+                <button class="staff-button" id="subject-button">Consult</button>
+                <button class="staff-button" id="subject-button">Submit</button>
+                <button class="staff-button" id="subject-button">Delete</button>
             </form>
         </section>
         <section class="chart" id="chart-4">
             <h3>Manage Users</h3>
-            <form action="" class="admin-form">
+            <form action="" class="manage-form">
                 <label for="user-id">ID</label>
                 <input type="text" name="user-id" id="user-id">
                 <label for="first-name">First Name</label>
@@ -126,9 +106,9 @@
                     <option value="staff">Staff</option>
                     <option value="admin">Admin</option>
                 </select>
-                <button class="admin-button" id="user-button">Consult</button>
-                <button class="admin-button" id="user-button">Submit</button>
-                <button class="admin-button" id="user-button">Delete</button>
+                <button class="staff-button" id="user-button">Consult</button>
+                <button class="staff-button" id="user-button">Submit</button>
+                <button class="staff-button" id="user-button">Delete</button>
             </form>
         </section>
         <section class="chart" id="chart-5">
@@ -144,11 +124,11 @@
             <p>(604) 444 76 54</p>
             <p>Whatsapp: (57) 3008848512</p>
         </div>
-        <div>
+        <div class="about">
             <h3>About Us</h3>
             <a href="../views/home/home.html">Home</a>
-            <p>Mission</p>
-            <p>Vision</p>
+            <a href="../../views/home/home.html#mission">Mission</a>
+            <a href="../../views/home/home.html#vision">Vision</a>
         </div>
         <div class="social">
             <h3>Our Social Networks</h3>
