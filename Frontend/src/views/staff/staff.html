@@ -32,11 +32,11 @@
                 |
                 <a href="#chart-1" class="feature">Enrollment Management</a>
                 |
-                <a href="#chart-2" class="feature">Gestion Cursos</a>
+                <a href="#chart-2" class="feature">See Courses</a>
                 |
-                <a href="#chart-3" class="feature">Profesores</a>
+                <a href="#chart-3" class="feature">See Teachers</a>
                 |
-                <a href="#chart-4" class="feature">Estudiantes</a> 
+                <a href="#chart-4" class="feature">See Students</a> 
             </b></p>
         </section>
     </nav>
@@ -48,45 +48,125 @@
         </section>
         <section class="chart" id="chart-1">
             <h3>Enrollment Management</h3>
-            <div class="div-chart base">
+            <div class="div-chart">
                 <div class="list crud">
                     <a href="#create" class="crud-link">Create</a>
-                    <a href="#read" class="crud-link">Read</a>
-                    <a href="#update" class="crud-link">Update</a>
-                    <a href="#delete" class="crud-link">Delete</a>
+                    <a href="#close" class="crud-link">Close</a>
                 </div>
                 <div class="sections">
-                    <section class="chart1" id="create">
-                        
+                    <section id="create" class="chart1">
+                        <form action="" class="manage-form">
+                            <label for="enroll-id">Enroll ID</label>
+                            <input type="number" name="enroll-id" id="enroll-id" required>
+                            
+                            <label for="course-id">Course ID</label>
+                            <input type="number" name="course-id" id="course-id" required>
+                            
+                            <button onclick="alert('The registration has been created successfully')" type="submit" class="staff-button">Submit</button>
+                            <!-- <button type="button" class="staff-button">Consult</button> -->
+                            <!-- <button type="button" class="staff-button">Delete</button> -->
+                        </form>
                     </section>
-                    <section class="chart1" id="read">
-                        <h1>2</h1>
-                    </section>
-                    <section class="chart1" id="update">
-                        <h1>3</h1>
-                    </section>
-                    <section class="chart1" id="delete">
-                        <h1>4</h1>
+                    <section class="chart1" id="close">
+                        <button onclick="alert('The semester has closed successfully')" class="staff-button">Close Semester</button>
                     </section>
                 </div>
             </div>
         </section>
         <section class="chart" id="chart-2">
-            <h3>Feature2</h3>
+            <h3>List of Courses</h3>
             <div class="div-chart">
-
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Course ID</th>
+                            <th>Course Name</th>
+                            <th>Teacher ID</th>
+                            <th>Teacher Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Math</td>
+                            <td>1</td>
+                            <td>John Doe</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Science</td>
+                            <td>2</td>
+                            <td>Jane Doe</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>History</td>
+                            <td>3</td>
+                            <td>John Smith</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
         <section class="chart" id="chart-3">
-            <h3>Feature3</h3>
+            <h3>List of Teachers</h3>
             <div class="div-chart">
-
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Teacher ID</th>
+                            <th>Teacher Name</th>
+                            <th>Course ID</th>
+                            <th>Course Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>John Doe</td>
+                            <td>1</td>
+                            <td>Math</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Jane Doe</td>
+                            <td>2</td>
+                            <td>Science</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>John Smith</td>
+                            <td>3</td>
+                            <td>History</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
         <section class="chart" id="chart-4">
-            <h3>Feature4</h3>
+            <h3>List of Students</h3>
             <div class="div-chart">
-
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Student 1</td>
+                            <td>10</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>Student 2</td>
+                            <td>12</td>
+                            <td>6</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
     </main>
