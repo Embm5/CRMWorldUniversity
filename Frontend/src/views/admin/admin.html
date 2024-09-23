@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../../img/Logo.png">
     <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/david2.css">
     <title>Admin</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -29,13 +30,15 @@
     <nav class="nav">
         <section class="list">
             <p><b>
-                <a href="#chart-1" class="feature">Course</a>
+                <a href="#chart-1" class="feature">Course Material</a>
                 |
-                <a href="#chart-2" class="feature">Subjects</a>
+                <a href="#chart-2" class="feature">Manage Courses</a>
                 |
-                <a href="#chart-3" class="feature">Manage users</a>
+                <a href="#chart-3" class="feature">Subjects</a>
                 |
-                <a href="#chart-4" class="feature">Close semester</a> 
+                <a href="#chart-4" class="feature">Manage Users</a>
+                |
+                <a href="#chart-5" class="feature">Close Semester</a> 
             </b></p>
         </section>
     </nav>
@@ -46,28 +49,91 @@
             <h3>What do you want to do?</h3>
         </section>
         <section class="chart" id="chart-1">
-            <h3>Course</h3>
+            <h3>Course Material</h3>
             <div class="div-chart">
-
+                <form action="" class="admin-form">
+                    <label for="subject-id">Course ID</label>
+                    <input type="text" name="subject-id" id="subject-id">
+                    <label for="course-material-id">Course Material ID</label>
+                    <input type="text" name="course-material-id" id="course-material-id">
+                    <label for="material-tittle">Material Tittle</label>
+                    <input type="text" name="material-tittle" id="material-tittle">
+                    <label for="material-description">Material Description</label>
+                    <input type="text" name="material-description" id="material-description">
+                    <button class="admin-button" id="course-button">Consult</button>
+                    <button class="admin-button" id="course-button">Submit</button>
+                    <button class="admin-button" id="course-button">Delete</button>
+                </form>
             </div>
         </section>
         <section class="chart" id="chart-2">
-            <h3>Subjects</h3>
+            <h3>Manage Courses</h3>
             <div class="div-chart">
-
+                <form action="" class="admin-form">
+                    <label for="subject-id">Subject ID</label>
+                    <input type="text" name="subject-id" id="subject-id">
+                    <label for="course-id">Course ID</label>
+                    <input type="text" name="course-id" id="course-id">
+                    <label for="teacher-id">Teacher ID</label>
+                    <input type="text" name="teacher-id" id="teacher-id">
+                    <label for="day">Day</label>
+                    <input type="text" name="day" id="day">
+                    <label for="start-time">Start Time</label>
+                    <input type="time" name="start-time" id="start-time">
+                    <label for="end-time">End Time</label>
+                    <input type="time" name="end-time" id="end-time">
+                    <label for="room">Room</label>
+                    <input type="text" name="room" id="room">
+                    <label for="schedule-id">Schedule ID</label>
+                    <input type="text" name="schedule-id" id="schedule-id">
+                    <button class="admin-button" id="subject-button">Consult</button>
+                    <button class="admin-button" id="subject-button">Submit</button>
+                    <button class="admin-button" id="subject-button">Delete</button>
+                </form>
             </div>
         </section>
         <section class="chart" id="chart-3">
-            <h3>Manage users</h3>
-            <div class="div-chart">
-
-            </div>
+            <h3>Subjects</h3>
+            <form action="" class="admin-form">
+                <label for="subject-id">Subject ID</label>
+                <input type="text" name="subject-id" id="subject-id">
+                <label for="subject-name">Subject Name</label>
+                <input type="text" name="subject-name" id="subject-name">
+                <label for="subject-semester">Subject Semester</label>
+                <input type="number" name="subject-semester" id="subject-semester">
+                <button class="admin-button" id="subject-button">Consult</button>
+                <button class="admin-button" id="subject-button">Submit</button>
+                <button class="admin-button" id="subject-button">Delete</button>
+            </form>
         </section>
         <section class="chart" id="chart-4">
-            <h3>Close semester</h3>
-            <div class="div-chart">
-
-            </div>
+            <h3>Manage Users</h3>
+            <form action="" class="admin-form">
+                <label for="user-id">ID</label>
+                <input type="text" name="user-id" id="user-id">
+                <label for="first-name">First Name</label>
+                <input type="text" name="first-name" id="first-name">
+                <label for="second-semester">Second Name</label>
+                <input type="text" name="second-semester" id="second-semester">
+                <label for="last-name1">1st Last Name</label>
+                <input type="text" name="last-name1" id="last-name1">
+                <label for="last-name2">2nd Last Name</label>
+                <input type="text" name="last-name2" id="last-name2">
+                <label for="role">Role</label>
+                <select id="roles">
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="staff">Staff</option>
+                    <option value="admin">Admin</option>
+                </select>
+                <button class="admin-button" id="user-button">Consult</button>
+                <button class="admin-button" id="user-button">Submit</button>
+                <button class="admin-button" id="user-button">Delete</button>
+            </form>
+        </section>
+        <section class="chart" id="chart-5">
+            <h3>Close Semester</h3>
+            
         </section>
     </main>
 
