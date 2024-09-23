@@ -7,35 +7,26 @@ export const CourseSchedule = sequelize.define('CourseSchedule', {
     primaryKey: true,
     autoIncrement: true
   },
-  day: { 
+  day: {
     type: DataTypes.STRING,
     allowNull: false
   },
-  startTime: { 
+  startTime: {
     type: DataTypes.TIME,
     allowNull: false
   },
-  endTime: { 
+  endTime: {
     type: DataTypes.TIME,
     allowNull: false
   },
-  courseId: { 
+  courseId: {
     type: DataTypes.INTEGER
   },
-  room: { 
+  room: {
     type: DataTypes.STRING,
     allowNull: false
   }
 })
-// }, {
-
-//   indexes: [
-//     {
-//       unique: true,
-//       fields: ['day', 'startTime', 'endTime', 'salon']
-//     }
-//   ]
-// })
 
 Course.hasMany(CourseSchedule, {
   foreignKey: 'courseId',
