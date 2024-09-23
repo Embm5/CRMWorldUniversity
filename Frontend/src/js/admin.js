@@ -1,15 +1,15 @@
-const course = document.querySelector('#course_a');
-const qualifications = document.querySelector('#qualifications_a');
-const attendance = document.querySelector('#attendance_a');
+const COURSE = document.querySelector('#chart-1');
+const SUBJECTS = document.querySelector('#chart-2');
+const USERS = document.querySelector('#chart-3');
 
-course.addEventListener('click', () => {
-    window.location.href = '/course';
+COURSE.addEventListener('click', () => {
+    
 });
 
-qualifications.addEventListener('click', () => {
-    window.location.href = '/qualifications';
+SUBJECTS.addEventListener('click', () => {
+    
 });
 
-attendance.addEventListener('click', () => {
-    window.location.href = '/attendance';
+USERS.addEventListener('click', () => {
+    
 });

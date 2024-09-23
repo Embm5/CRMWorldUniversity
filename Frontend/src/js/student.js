@@ -1,25 +1,25 @@
-const course = document.querySelector('#course');
-const qualifications = document.querySelector('#qualifications');
-const attendance = document.querySelector('#attendance_record');
-const schedule = document.querySelector('#download_schedule');
-const enrollment = document.querySelector('#enrollment');
+const COURSE = document.querySelector('#course');
+const QUALIFICATIONS = document.querySelector('#qualifications');
+const ATTENDANCE = document.querySelector('#attendance_record');
+const SCHEDULE = document.querySelector('#download_schedule');
+const ENROLLMENT = document.querySelector('#enrollment');
 
-course.addEventListener('click', () => {
+COURSE.addEventListener('click', () => {
     window.location.href = '/Frontend/src/views/student/course.html';
 });
 
-qualifications.addEventListener('click', () => {
+QUALIFICATIONS.addEventListener('click', () => {
     window.location.href = '/Frontend/src/views/student/qualifications.html';
 });
 
-attendance.addEventListener('click', () => {
+ATTENDANCE.addEventListener('click', () => {
     window.location.href = '/Frontend/src/views/student/attendance.html';
 });
 
-schedule.addEventListener('click', () => {
+SCHEDULE.addEventListener('click', () => {
     window.location.href = '/Frontend/src/views/student/schedule.html';
 });
 
-enrollment.addEventListener('click', () => {
+ENROLLMENT.addEventListener('click', () => {
     window.location.href = '/Frontend/src/views/student/enrollment.html';
 });

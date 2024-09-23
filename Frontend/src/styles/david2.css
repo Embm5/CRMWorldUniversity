@@ -1,0 +1,57 @@
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    font-size: xx-large;
+    border: 1rem solid #003366;
+    border-radius: 1rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 20rem;
+}
+
+.admin-form label {
+    color:  #003366;
+}
+
+.admin-form input {
+    width: 100%;
+}
+
+/* overwrite chart h3 */
+.chart h3 {
+    text-align: center;
+}
+
+/* overwrite chart class */
+.chart {
+    height: 70vh;
+    width: 60%;
+}
+
+.admin-button{
+    background-color: #003366;
+    color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.admin-button:hover{
+   color: #BFCAD7;
+}
+
+/* overwrite body class */
+.grid-container {
+    height: 100vh;
+}
+
+/* overwrite main */
+main {
+    margin: 2rem;
+}
+
+/* overwrite first-chart */
+.first-chart {
+  height: fit-content;
+}
