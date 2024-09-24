@@ -120,9 +120,35 @@
         <section class="chart" id="chart-5">
             <h3>Calendar</h3>
             <div class="div-chart">
-
+                <div class="calendar">
+                    <div class="calendar-header">
+                        <button id="prevMonth" class="nav-button">❮</button>
+                        <h2 id="monthYear"></h2>
+                        <button id="nextMonth" class="nav-button">❯</button>
+                    </div>
+                    <div class="calendar-days">
+                        <div class="day">Sun</div>
+                        <div class="day">Mon</div>
+                        <div class="day">Tue</div>
+                        <div class="day">Wed</div>
+                        <div class="day">Thu</div>
+                        <div class="day">Fri</div>
+                        <div class="day">Sat</div>
+                    </div>
+                    <div class="calendar-body" id="calendarBody"></div>
+                </div>
+        
+                <h3>Add Pending</h3>
+                <form id="pendingForm">
+                    <input type="date" id="pendingDate" required>
+                    <input type="text" id="pendingText" placeholder="Enter your pending..." required>
+                    <button type="submit">Add</button>
+                </form>
+                
+                <div id="pendingsList"></div>
             </div>
         </section>
+        
     </main>
 
     <footer class="footer">
