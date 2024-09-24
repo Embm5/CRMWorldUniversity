@@ -4,6 +4,7 @@ import { Enroll } from '../models/enroll.model.js'
 export class EnrollController {
   getAllEnrrols = async (req, res) => {
     try {
+      console.log('enter to the ger')
       const enrolls = await Enroll.findAll({
         include: [{
           model: Student,
@@ -104,6 +105,7 @@ export class EnrollController {
     }
   }
 
+  // Obtener todas las matriculas INACTIVAS
   getInactiveEnrolls = async (req, res) => {
     try {
       const inactiveEnrolls = await Enroll.findAll({

@@ -1,5 +1,7 @@
 import { Teacher } from '../models/teacher.model.js'
 import { Person } from '../models/person.model.js'
+import { Credential } from '../models/credential.model.js'
+import { Credentialcontroller } from './credential.controller.js'
 
 export class TeacherController {
   getaAllTeachers = async (req, res) => {
@@ -16,10 +18,11 @@ export class TeacherController {
 
   createTeacher = async (req, res) => {
     try {
-      const { id, firstName, secondName, lastName1, lastName2 } = req.body
+      const { id, firstName, secondName, lastName1, lastName2, email, password } = req.body
       const doc = id
       const person = await Person.findByPk(doc)
-      if (!person) {
+      const cred = await Credential.findOne({ where: { email } })
+      if (!person && !cred) {
         const newPerson = await Person.create({
           id: doc,
           firstName,
@@ -27,6 +30,8 @@ export class TeacherController {
           lastName1,
           lastName2
         })
+        const credentialcontroller = new Credentialcontroller()
+        await credentialcontroller.createCredential({ personId: doc, email, password })
         await Teacher.create({ personId: doc })
         return res.status(201).json({ newPerson })
       }
@@ -69,22 +74,7 @@ export class TeacherController {
       const { id } = req.params
       const client = await Person.findByPk(id)
       client.set(req.body)
-
-      //   const { email } = req.body
-      //   const cred = await Credential.findByPk(id)
-      //   if (cred.email.toLowerCase() !== email.toLowerCase()) {
-      //     const oldCred = await Credential.findOne({
-      //       where: {
-      //         email: { [Op.iLike]: email }
-      //       }
-      //     })
-      //     if (oldCred) {
-      //       return res.status(400).json({ message: 'Email is already in use' })
-      //     }
-      //   }
-      //   cred.email = email
       await client.save()
-      //   await cred.save()
       res.status(202).json(client)
     } catch (error) {
       return res.status(500).json({ mesaage: error.message })

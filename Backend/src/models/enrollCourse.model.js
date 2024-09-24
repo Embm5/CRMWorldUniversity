@@ -1,19 +1,31 @@
+import { DataTypes } from 'sequelize'
 import { sequelize } from '../database/connection.js'
 import { Enroll } from './enroll.model.js'
 import { Course } from './course.model.js'
-import { DataTypes } from 'sequelize'
 
 export const EnrollCourse = sequelize.define('EnrollCourse', {
-
-  aprroved: {
+  approved: {
     type: DataTypes.BOOLEAN,
     defaultValue: false
   }
 })
 
-Course.belongsToMany(Enroll, {
-  through: EnrollCourse
+EnrollCourse.belongsTo(Enroll, {
+  foreignKey: 'enrollID',
+  targetKey: 'enrollID'
 })
-Enroll.belongsToMany(Course, {
-  through: EnrollCourse
+
+EnrollCourse.belongsTo(Course, {
+  foreignKey: 'courseId',
+  targetKey: 'courseId'
+})
+
+Enroll.hasMany(EnrollCourse, {
+  foreignKey: 'enrollID',
+  sourceKey: 'enrollID'
+})
+
+Course.hasMany(EnrollCourse, {
+  foreignKey: 'courseId',
+  sourceKey: 'courseId'
 })
