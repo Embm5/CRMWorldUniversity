@@ -91,7 +91,11 @@ const DELETE_C = document.querySelector('#course-delete');
 const SUBJECT_ID_C = document.querySelector('#c-subject-id');
 const COURSE_ID = document.querySelector('#course-id');
 const TEACHER_ID = document.querySelector('#teacher-id');
-const DAY = document.querySelector('#day');
+const MONDAY = document.querySelector('#monday');
+const TUESDAY = document.querySelector('#tuesday');
+const WEDNESDAY = document.querySelector('#wednesday');
+const THURSDAY = document.querySelector('#thursday');
+const FRIDAY = document.querySelector('#friday');
 const START_TIME = document.querySelector('#start-time');
 const END_TIME = document.querySelector('#end-time');
 const CLASSROOM = document.querySelector('#classroom');
@@ -106,11 +110,28 @@ CONSULT_C.addEventListener('click', () => {
 });
 
 SUBMIT_C.addEventListener('click', (e) => {
+    let days = [];
+    if (MONDAY.checked) {
+        days.push('Monday');
+    }
+    if (TUESDAY.checked) {
+        days.push('Tuesday');
+    }
+    if (WEDNESDAY.checked) {
+        days.push('Wednesday');
+    }
+    if (THURSDAY.checked) {
+        days.push('Thursday');
+    }
+    if (FRIDAY.checked) {
+        days.push('Friday');
+    }
+    
     let newCourse = {
         subjectId: SUBJECT_ID_C.value,
         courseId: COURSE_ID.value,
         teacherId: TEACHER_ID.value,
-        day: DAY.value,
+        day: days,
         startTime: START_TIME.value,
         endTime: END_TIME.value,
         classroom: CLASSROOM.value,
