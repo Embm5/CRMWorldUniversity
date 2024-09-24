@@ -93,6 +93,7 @@ body{
     justify-content: center;
     align-items: center;
     font-family: "Inter", sans-serif;
+    color: #ffffff;
 }
 
 .feature {
@@ -145,6 +146,7 @@ body{
 .chart h3{
     font-size: 3rem;
     color: #003366;
+    text-align: center;
 }
 
 .second-header{
