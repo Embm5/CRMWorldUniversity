@@ -18,7 +18,7 @@
         </a>
         <div class="flex-container">
             <button class="button">Admin</button>
-            <img src="../../img/icon_person.png" alt="" class="icon_person">
+            <img src="../../img/iconperson.png" alt="" class="icon-person">
         </div>
     </header>
 
@@ -50,8 +50,8 @@
             <h3>Manage Courses</h3>
             <div class="div-chart">
                 <form action="" class="manage-form">
-                    <label for="subject-id">Subject ID</label>
-                    <input type="text" name="subject-id" id="subject-id">
+                    <label for="c-subject-id">Subject ID</label>
+                    <input type="text" name="c-subject-id" id="c-subject-id">
                     <label for="course-id">Course ID</label>
                     <input type="text" name="course-id" id="course-id">
                     <label for="teacher-id">Teacher ID</label>
@@ -62,28 +62,28 @@
                     <input type="time" name="start-time" id="start-time">
                     <label for="end-time">End Time</label>
                     <input type="time" name="end-time" id="end-time">
-                    <label for="room">Room</label>
-                    <input type="text" name="room" id="room">
+                    <label for="classroom">Classroom</label>
+                    <input type="text" name="classroom" id="classroom">
                     <label for="schedule-id">Schedule ID</label>
                     <input type="text" name="schedule-id" id="schedule-id">
-                    <button class="staff-button" id="subject-button">Consult</button>
-                    <button class="staff-button" id="subject-button">Submit</button>
-                    <button class="staff-button" id="subject-button">Delete</button>
+                    <button type="button" class="staff-button" id="course-consult">Consult</button>
+                    <button type="button" class="staff-button" id="course-submit">Submit</button>
+                    <button type="button" class="staff-button" id="course-delete">Delete</button>
                 </form>
             </div>
         </section>
         <section class="chart" id="chart-3">
             <h3>Subjects</h3>
-            <form action="" class="manage-form">
+            <form class="manage-form">
                 <label for="subject-id">Subject ID</label>
                 <input type="text" name="subject-id" id="subject-id">
                 <label for="subject-name">Subject Name</label>
                 <input type="text" name="subject-name" id="subject-name">
                 <label for="subject-semester">Subject Semester</label>
                 <input type="number" name="subject-semester" id="subject-semester">
-                <button class="staff-button" id="subject-button">Consult</button>
-                <button class="staff-button" id="subject-button">Submit</button>
-                <button class="staff-button" id="subject-button">Delete</button>
+                <button type="button" class="staff-button" id="subject-consult">Consult</button>
+                <button type="button" class="staff-button" id="subject-submit">Submit</button>
+                <button type="button" class="staff-button" id="subject-delete">Delete</button>
             </form>
         </section>
         <section class="chart" id="chart-4">
@@ -93,22 +93,22 @@
                 <input type="text" name="user-id" id="user-id">
                 <label for="first-name">First Name</label>
                 <input type="text" name="first-name" id="first-name">
-                <label for="second-semester">Second Name</label>
-                <input type="text" name="second-semester" id="second-semester">
+                <label for="second-name">Second Name</label>
+                <input type="text" name="second-namer" id="second-name">
                 <label for="last-name1">1st Last Name</label>
                 <input type="text" name="last-name1" id="last-name1">
                 <label for="last-name2">2nd Last Name</label>
                 <input type="text" name="last-name2" id="last-name2">
                 <label for="role">Role</label>
-                <select id="roles" title=".">
+                <select id="role" title=".">
                     <option value="student">Student</option>
                     <option value="teacher">Teacher</option>
                     <option value="staff">Staff</option>
                     <option value="admin">Admin</option>
                 </select>
-                <button class="staff-button" id="user-button">Consult</button>
-                <button class="staff-button" id="user-button">Submit</button>
-                <button class="staff-button" id="user-button">Delete</button>
+                <button type="button" class="staff-button" id="user-consult">Consult</button>
+                <button type="button" class="staff-button" id="user-submit">Submit</button>
+                <button type="button" class="staff-button" id="user-delete">Delete</button>
             </form>
         </section>
         <section class="chart" id="chart-5">
@@ -141,5 +141,6 @@
     </footer>
 
     <script src="../../js/main.js"></script>
+    <script src="../../js/admin.js"></script>
 </body>
 </html>
