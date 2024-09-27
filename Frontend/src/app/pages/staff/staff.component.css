@@ -1,0 +1,57 @@
+.img-aside {
+    width: 10em;
+    height: 15em;
+}
+
+.sections{
+    padding-top: 30px;
+}
+
+.sections section{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.manage-form {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    padding: 2rem;
+    border: 2px solid #003366;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.manage-form label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.manage-form input {
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.staff-button {
+    background-color: #003366;
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.staff-button:hover {
+    background-color: #002244;
+}
+
+.table thead {
+    background-color: #003366;
+    color: white;
+}

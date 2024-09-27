@@ -25,6 +25,14 @@ export class LoginComponent {
           localStorage.setItem('rol', data.rol)
           if (data.rol === 'administrator') {
           this.router.navigate(['/administrator'])
+          }if (data.rol === 'student') {
+            this.router.navigate(['/student'])
+          }
+          if (data.rol === 'teacher') {
+            this.router.navigate(['/teacher'])
+          }
+          if (data.rol === 'staff') {
+            this.router.navigate(['/staff'])
           }
         },
         error: (e:HttpErrorResponse) => {
