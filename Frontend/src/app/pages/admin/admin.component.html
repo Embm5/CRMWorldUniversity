@@ -1,0 +1,146 @@
+<body class="grid-container">
+    <header class="header">
+        <a href="../views/home/home.html">
+            <img src="../../img/Logo.png" alt="" class="logo">
+        </a>
+        <div class="flex-container">
+            <button class="button">Admin</button>
+            <img src="../../img/iconperson.png" alt="" class="icon-person">
+        </div>
+    </header>
+
+    <aside class="aside">
+        <p class="title">Welcome admin</p>
+        <img src="../../img/admin.png" alt="" class="img-aside">
+    </aside>
+
+    <nav class="nav">
+        <section class="list">
+            <p><b>
+                <a href="#chart-2" class="feature">Manage Courses</a>
+                |
+                <a href="#chart-3" class="feature">Subjects</a>
+                |
+                <a href="#chart-4" class="feature">Manage Users</a>
+                |
+                <a href="#chart-5" class="feature">Close Semester</a> 
+            </b></p>
+        </section>
+    </nav>
+
+    <main class="main">
+        <section class="first-chart" id="chart-0">
+            <i class='bx bxs-hand-up'></i>
+            <h3>What do you want to do?</h3>
+        </section>
+        <section class="chart" id="chart-2">
+            <h3>Manage Courses</h3>
+            <div class="div-chart">
+                <form action="" class="manage-form">
+                    <label for="c-subject-id">Subject ID</label>
+                    <input type="text" name="c-subject-id" id="c-subject-id">
+                    <label for="course-id">Course ID</label>
+                    <input type="text" name="course-id" id="course-id">
+                    <label for="teacher-id">Teacher ID</label>
+                    <input type="text" name="teacher-id" id="teacher-id">                  
+                    <label for="day">Day</label>
+                    <div>
+                        <label for="monday">Monday</label>
+                        <input type="checkbox" name="monday" id="monday">
+                        <br>
+                        <label for="tuesday">Tuesday</label>
+                        <input type="checkbox" name="tuesday" id="tuesday">
+                        <br>
+                        <label for="wednesday">Wednesday</label>
+                        <input type="checkbox" name="wednesday" id="wednesday">
+                        <br>
+                        <label for="thursday">Thursday</label>
+                        <input type="checkbox" name="thursday" id="thursday">
+                        <br>
+                        <label for="friday">Friday</label>
+                        <input type="checkbox" name="friday" id="friday">
+                    </div>
+                    <label for="start-time">Start Time</label>
+                    <input type="time" name="start-time" id="start-time">
+                    <label for="end-time">End Time</label>
+                    <input type="time" name="end-time" id="end-time">
+                    <label for="classroom">Classroom</label>
+                    <input type="text" name="classroom" id="classroom">
+                    <label for="schedule-id">Schedule ID</label>
+                    <input type="text" name="schedule-id" id="schedule-id">
+                    <button type="button" class="staff-button" id="course-consult">Consult</button>
+                    <button type="button" class="staff-button" id="course-submit">Submit</button>
+                    <button type="button" class="staff-button" id="course-delete">Delete</button>
+                </form>
+            </div>
+        </section>
+        <section class="chart" id="chart-3">
+            <h3>Subjects</h3>
+            <form class="manage-form">
+                <label for="subject-id">Subject ID</label>
+                <input type="text" name="subject-id" id="subject-id">
+                <label for="subject-name">Subject Name</label>
+                <input type="text" name="subject-name" id="subject-name">
+                <label for="subject-semester">Subject Semester</label>
+                <input type="number" name="subject-semester" id="subject-semester">
+                <button type="button" class="staff-button" id="subject-consult">Consult</button>
+                <button type="button" class="staff-button" id="subject-submit">Submit</button>
+                <button type="button" class="staff-button" id="subject-delete">Delete</button>
+            </form>
+        </section>
+        <section class="chart" id="chart-4">
+            <h3>Manage Users</h3>
+            <form action="" class="manage-form">
+                <label for="user-id">ID</label>
+                <input type="text" name="user-id" id="user-id">
+                <label for="first-name">First Name</label>
+                <input type="text" name="first-name" id="first-name">
+                <label for="second-name">Second Name</label>
+                <input type="text" name="second-namer" id="second-name">
+                <label for="last-name1">1st Last Name</label>
+                <input type="text" name="last-name1" id="last-name1">
+                <label for="last-name2">2nd Last Name</label>
+                <input type="text" name="last-name2" id="last-name2">
+                <label for="role">Role</label>
+                <select id="role" title=".">
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="staff">Staff</option>
+                    <option value="admin">Admin</option>
+                </select>
+                <button type="button" class="staff-button" id="user-consult">Consult</button>
+                <button type="button" class="staff-button" id="user-submit">Submit</button>
+                <button type="button" class="staff-button" id="user-delete">Delete</button>
+            </form>
+        </section>
+        <section class="chart" id="chart-5">
+            <h3>Close Semester</h3>
+            
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div>
+            <h3>Contact Us</h3>
+            <p>43, Av. Carabobo #42, Medellin, Antioquia</p>
+            <p>(604) 444 76 54</p>
+            <p>Whatsapp: (57) 3008848512</p>
+        </div>
+        <div class="about">
+            <h3>About Us</h3>
+            <a href="../views/home/home.html">Home</a>
+            <a href="../../views/home/home.html#mission">Mission</a>
+            <a href="../../views/home/home.html#vision">Vision</a>
+        </div>
+        <div class="social">
+            <h3>Our Social Networks</h3>
+            <div class="icons">
+                <i class='bx bxl-facebook'></i>
+                <i class='bx bxl-youtube' ></i>
+                <i class='bx bxl-instagram-alt' ></i>
+            </div>
+        </div>
+    </footer>
+
+ 
+</body>

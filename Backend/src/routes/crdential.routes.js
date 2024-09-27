@@ -7,7 +7,7 @@ const credentialcontroller = new Credentialcontroller()
 export const credentialRouters = Router()
 
 credentialRouters.get('/api/credential', validateToken, validateRolToken(['administrator']), credentialcontroller.getAllCredentials)
-credentialRouters.get('/api/credential/:id', validateToken, validateRolToken(['administrator', 'Staff', 'Teacher', 'Student']), credentialcontroller.getCredential)
+credentialRouters.get('/api/credential/:id', validateToken, validateRolToken(['administrator', 'staff', 'teacher', 'student']), credentialcontroller.getCredential)
 credentialRouters.put('/api/credential/:id', validateToken, validateRolToken(['administrator']), credentialcontroller.updateCredential)
 credentialRouters.delete('/api/credential/:id', validateToken, validateRolToken(['administrator']), credentialcontroller.deleteCredential)
 

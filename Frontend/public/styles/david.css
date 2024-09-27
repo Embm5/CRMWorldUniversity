@@ -1,0 +1,213 @@
+/* not currently used */
+
+* {
+    margin: 0;
+    font-family: 'Segoe UI';
+}
+
+header {
+    background-color: #BFCAD7;
+    display: flex;
+    align-items: center;
+    height: 13rem;
+}
+
+.button_profile {
+    background-color: #003366;
+    color: white;
+    border-radius: 2rem;
+    border: none;
+    height: 2.5rem;
+    width: 10rem;
+}
+
+#logo {
+    height: 10rem;
+}
+
+#icon_person {
+    height: 5rem;
+} 
+
+#right_header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+footer {
+    padding: 1rem;
+    background-color: #BFCAD7;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer section {
+    display: inline-block;
+}
+
+h3 {
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.social_media {
+    height: 2rem;
+}
+
+#about_us {
+    list-style: none;
+    padding-left: 0;
+}
+
+#main_student {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    /* background-color: #003366; */
+    padding-left: 33rem;
+}
+
+#features_student {
+    display: inline-flex;
+    flex-direction: column;
+    width: 60rem;
+}
+
+#features_student article{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.2rem;
+    padding: 1rem;
+    background-color: #BFCAD7;
+    border-radius: 1rem;
+}
+
+#main_admin {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    /* background-color: #003366; */
+    padding-left: 34rem;
+}
+
+#features_admin {
+    display: inline-flex;
+    flex-direction: column;
+    width: 30rem;
+}
+
+#features_admin article{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.2rem;
+    padding: 1rem;
+    background-color: #BFCAD7;
+    border-radius: 1rem;
+}
+
+#main_home {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    /* background-color: #003366; */
+    padding-left: 38rem;
+}
+
+#main_image{
+    width: 50%;
+    margin-left: 30%;
+}
+
+.feature_img {
+    height: 3rem;
+}
+
+#admin2 {
+    width: 30%;
+    margin-left: 24%;
+}
+
+#welcome {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 20rem;
+    font-size: xx-large;
+    /* background-color: #003366; */
+    color: white;
+    padding-right: 15rem;
+}
+
+#welcome h1 {
+    font-size: 5rem;
+    
+}
+
+.features_p {
+    font-size: xx-large;
+}
+
+main article:hover {
+    color: white;
+    cursor: pointer;
+}
+
+#follow_us {
+    text-align: center;
+}
+
+#main_2_img {
+    width: 30%;
+    margin-left: 24%;
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: white;
+}
+
+#home_img {
+    height: 30rem;
+}
+
+#section2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* background-color: #003366; */
+}
+
+#section2 article {
+    width: 30%;
+    height: 7rem;
+    background-color: #BFCAD7;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+#section2 h2 {
+    text-align: center;
+}
+
+#welcome h1 {
+   margin-left: 15rem;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    color: black;
+    background-image: url('/Frontend/src/img/background.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #003366;
+    background-position: center;
+}
