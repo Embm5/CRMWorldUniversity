@@ -1,10 +1,10 @@
 <body class="grid-container">
     <header class="header">
-        <a href="../../views/home/home.html">
+        <a href="/" (click)="reload()">
             <img src="../../img/Logo.png" alt="" class="logo">
         </a>
         <div class="flex-container">
-            <button class="button">Staff</button>
+            <button class="button"(click)="logOut()">log out</button>
             <img src="../../img/iconperson.png" alt="" class="icon-person">
         </div>
     </header>

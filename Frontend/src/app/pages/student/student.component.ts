@@ -12,6 +12,15 @@ export class StudentComponent {
   constructor(private router: Router){
     
   }
+  ngOnInit() {
+    if(!localStorage.getItem('pageReloaded')){
+      localStorage.setItem('pageReloaded', 'true');
+      location.reload();
+    }
+  }
+  reload(){
+    localStorage.removeItem('pageReloaded');
+  }
   logOut(){
     localStorage.removeItem('token');
     localStorage.removeItem('rol');
