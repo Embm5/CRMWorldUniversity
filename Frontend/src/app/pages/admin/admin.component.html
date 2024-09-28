@@ -90,26 +90,26 @@
         </section>
         <section class="chart" id="chart-4">
             <h3>Manage Users</h3>
-            <form action="" class="manage-form">
+            <form action="" class="manage-form" id="userForm" [formGroup]="userForm">
                 <label for="user-id">ID</label>
-                <input type="text" name="user-id" id="user-id">
+                <input type="text" name="user-id" id="user-id" formControlName="id" >
                 <label for="first-name">First Name</label>
-                <input type="text" name="first-name" id="first-name">
+                <input type="text" name="first-name" id="first-name" formControlName="firstName">
                 <label for="second-name">Second Name</label>
-                <input type="text" name="second-namer" id="second-name">
+                <input type="text" name="second-namer" id="second-name" formControlName="secondName">
                 <label for="last-name1">1st Last Name</label>
-                <input type="text" name="last-name1" id="last-name1">
+                <input type="text" name="last-name1" id="last-name1" formControlName="lastName1">
                 <label for="last-name2">2nd Last Name</label>
-                <input type="text" name="last-name2" id="last-name2">
+                <input type="text" name="last-name2" id="last-name2" formControlName="lastName2">
                 <label for="role">Role</label>
-                <select id="role" title=".">
+                <select id="role" title="."formControlName="selectedRol"  >
                     <option value="student">Student</option>
                     <option value="teacher">Teacher</option>
                     <option value="staff">Staff</option>
                     <option value="admin">Admin</option>
                 </select>
                 <button type="button" class="staff-button" id="user-consult">Consult</button>
-                <button type="button" class="staff-button" id="user-submit">Submit</button>
+                <button type="button" class="staff-button" id="user-submit" (click)="saveUser()">Submit</button>
                 <button type="button" class="staff-button" id="user-delete">Delete</button>
             </form>
         </section>

@@ -47,7 +47,11 @@ export class StudentController {
   getStudent = async (req, res) => {
     try {
       const { id } = req.params
-      const student = await Person.findByPk(id)
+      const student = await Person.findByPk(id, {
+        include: [{
+          model: Credential
+        }]
+      })
       if (student) {
         res.json(student)
       } else {

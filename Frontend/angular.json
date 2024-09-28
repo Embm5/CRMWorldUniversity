@@ -29,7 +29,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": ["js/main.js" , "js/staff.js"]
+            "scripts": []
           },
           "configurations": {
             "production": {

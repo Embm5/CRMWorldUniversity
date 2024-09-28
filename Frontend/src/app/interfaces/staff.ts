@@ -3,7 +3,7 @@ import { Person } from "./person";
 
 
 
-export interface Teacher{
+export interface Staff{
     personId: string;
     createdAt?: string,
     updatedAt?: string,
