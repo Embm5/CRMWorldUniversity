@@ -9,5 +9,6 @@ import { RouterLink } from '@angular/router';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-
+  rol: string = localStorage.getItem('rol') || '';
+  route: string = "/"+this.rol; 
 }

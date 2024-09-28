@@ -14,8 +14,12 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class LoginComponent {
   email: string = ''
   password: string = ''
-  constructor(private router: Router, private _credentialsService: CredentialsService){
-
+  constructor(private router: Router, private _credentialsService: CredentialsService ){
+    const rol = localStorage.getItem('rol');
+    if (rol){
+      this.router.navigate(['/'+ rol])
+    }
+    
   }
   login(){
     if (this.validateData()){

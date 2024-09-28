@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -9,5 +9,23 @@ import { RouterLink } from '@angular/router';
   styleUrl: './admin.component.css'
 })
 export class AdminComponent {
+  ngOnInit() {
+    if(!localStorage.getItem('pageReloaded')){
+      localStorage.setItem('pageReloaded', 'true');
+      location.reload();
+    }
+  }
+  reload(){
+    localStorage.removeItem('pageReloaded');
+  }
+  constructor(private router: Router){
+   
+  }
+  logOut(){
+    localStorage.removeItem('token');
+    localStorage.removeItem('rol');
+    localStorage.removeItem('pageReloaded');
+    this.router.navigate(['']);  
+  } 
 
 }

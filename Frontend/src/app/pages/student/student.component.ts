@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-student',
@@ -9,5 +9,12 @@ import { RouterLink } from '@angular/router';
   styleUrl: './student.component.css'
 })
 export class StudentComponent {
-
+  constructor(private router: Router){
+    
+  }
+  logOut(){
+    localStorage.removeItem('token');
+    localStorage.removeItem('rol');
+    this.router.navigate(['']);  
+  } 
 }

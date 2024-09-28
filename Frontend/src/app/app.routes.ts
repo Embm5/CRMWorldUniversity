@@ -5,6 +5,7 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { StaffComponent } from './pages/staff/staff.component';
 import { StudentComponent } from './pages/student/student.component';
 import { TeacherComponent } from './pages/teacher/teacher.component';
+import { adminGuard, loginGuard, staffGuard, studentGuard, teacherGuard } from './guards/login.guard';
 
 export const routes: Routes = [{    
     path: '',
@@ -13,21 +14,27 @@ export const routes: Routes = [{
 },{    
     path: 'administrator',
     component: AdminComponent,
-    title: 'Admin World University'
+    title: 'Admin World University',
+    canActivate: [loginGuard , adminGuard]
+    
 },{
     path: 'student',
     component: StudentComponent,
-    title: 'Student   World University'
+    title: 'Student   World University',
+    canActivate: [loginGuard , studentGuard]
 
 },{
     path: 'teacher',
     component: TeacherComponent,
-    title: 'Teacher World University' 
+    title: 'Teacher World University',
+    canActivate: [loginGuard,teacherGuard]
 
 },{    
     path: 'staff',
     component: StaffComponent,
-    title: 'Staff World University'
+    title: 'Staff World University',
+    canActivate: [loginGuard,staffGuard]
+
 },{    
     path: 'login',
     component: LoginComponent,
