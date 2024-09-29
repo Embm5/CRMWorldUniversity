@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,5 +10,21 @@ import { RouterLink } from '@angular/router';
 })
 export class HomeComponent {
   rol: string = localStorage.getItem('rol') || '';
-  route: string = "/"+this.rol; 
+  route: string = "/" + this.rol;
+
+  constructor(private router: Router) {
+
+
+  }
+
+  reload() {
+    localStorage.removeItem('pageReloaded');
+  }
+  logOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('rol');
+    localStorage.removeItem('pageReloaded');
+    this.router.navigate(['']);
+  }
+
 }

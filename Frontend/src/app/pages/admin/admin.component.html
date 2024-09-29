@@ -1,10 +1,10 @@
 <body class="grid-container">
     <header class="header">
         <a href="/" (click)="reload()">
-            <img src="../../img/Logo.png" alt="" class="logo" >
+            <img src="../../img/Logo.png" alt="" class="logo">
         </a>
         <div class="flex-container">
-            <button class="button"(click)="logOut()">log out</button>
+            <button class="button" (click)="logOut()">log out</button>
             <img src="../../img/iconperson.png" alt="" class="icon-person">
         </div>
     </header>
@@ -17,14 +17,14 @@
     <nav class="nav">
         <section class="list">
             <p><b>
-                <a href="#chart-2" class="feature">Manage Courses</a>
-                |
-                <a href="#chart-3" class="feature">Subjects</a>
-                |
-                <a href="#chart-4" class="feature">Manage Users</a>
-                |
-                <a href="#chart-5" class="feature">Close Semester</a> 
-            </b></p>
+                    <a href="#chart-2" class="feature">Manage Courses</a>
+                    |
+                    <a href="#chart-3" class="feature">Subjects</a>
+                    |
+                    <a href="#chart-4" class="feature">Manage Users</a>
+                    |
+                    <a href="#chart-5" class="feature">Close Semester</a>
+                </b></p>
         </section>
     </nav>
 
@@ -42,7 +42,7 @@
                     <label for="course-id">Course ID</label>
                     <input type="text" name="course-id" id="course-id">
                     <label for="teacher-id">Teacher ID</label>
-                    <input type="text" name="teacher-id" id="teacher-id">                  
+                    <input type="text" name="teacher-id" id="teacher-id">
                     <label for="day">Day</label>
                     <div>
                         <label for="monday">Monday</label>
@@ -76,23 +76,55 @@
         </section>
         <section class="chart" id="chart-3">
             <h3>Subjects</h3>
-            <form class="manage-form">
-                <label for="subject-id">Subject ID</label>
-                <input type="text" name="subject-id" id="subject-id">
+            @if(option !=='1' && option !=='2' && option !=='3'){
+            <button type="button" class="staff-button" id="user-consult" (click)="option ='1' ">create</button>
+            <button type="button" class="staff-button" id="user-consult" (click)="option = '2'">consult</button>
+            }
+            @if (option === '1') {
+
+            <form class="manage-form" [formGroup]="assignmentForm">
                 <label for="subject-name">Subject Name</label>
-                <input type="text" name="subject-name" id="subject-name">
-                <label for="subject-semester">Subject Semester</label>
-                <input type="number" name="subject-semester" id="subject-semester">
-                <button type="button" class="staff-button" id="subject-consult">Consult</button>
-                <button type="button" class="staff-button" id="subject-submit">Submit</button>
-                <button type="button" class="staff-button" id="subject-delete">Delete</button>
+                <input type="text" name="subject-name" id="subject-name" formControlName="name">
+                <label for="subject-name">Semester</label>
+                <input type="text" name="semester-name" id="semester-name" formControlName="semester">
+                <button type="button" class="staff-button" id="subject-submit"
+                    (click)="saveAssignment()">Submit</button>
+                <button type="button" class="staff-button" id="user-consult" (click)="option = '0'">cancel</button>
             </form>
+            }@else if (option === '2') {
+            <form action="" class="manage-form" id="userForm" [formGroup]="assignmentForm2">
+                <label for="user-id">ID</label>
+                <input type="text" name="asignment-id" id="assignment-id" formControlName="asId">
+                <button type="button" class="staff-button" id="user-submit"
+                    (click)="consultAssignment()">Submit</button>
+
+                <button type="button" class="staff-button" id="user-consult" (click)="option = '0'">cancel</button>
+            </form>
+            }@else if (option === '3') {
+            <div class="data-display">
+                <h4>User</h4>
+                <p><strong>Asid:</strong> {{ assignmentFound.asId }}</p>
+                <p><strong>Name:</strong> {{ assignmentFound.name }}</p>
+                <p><strong>Semester:</strong> {{assignmentFound.semester }}</p>
+                <button type="button" class="staff-button" id="user-consult" (click)="option = '0'">cancel</button>
+                <button type="button" class="staff-button" id="user-submit" (click)="deleteAssignment()">delete</button>
+            </div>
+            }
+
         </section>
+
+
         <section class="chart" id="chart-4">
             <h3>Manage Users</h3>
+            @if(option !=='1' && option !=='2' && option !=='3'){
+            <button type="button" class="staff-button" id="user-consult" (click)="option ='1' ">create</button>
+            <button type="button" class="staff-button" id="user-consult" (click)="option = '2'">consult</button>
+            }
+
+            @if (option === '1') {
             <form action="" class="manage-form" id="userForm" [formGroup]="userForm">
                 <label for="user-id">ID</label>
-                <input type="text" name="user-id" id="user-id" formControlName="id" >
+                <input type="text" name="user-id" id="user-id" formControlName="id">
                 <label for="first-name">First Name</label>
                 <input type="text" name="first-name" id="first-name" formControlName="firstName">
                 <label for="second-name">Second Name</label>
@@ -102,20 +134,41 @@
                 <label for="last-name2">2nd Last Name</label>
                 <input type="text" name="last-name2" id="last-name2" formControlName="lastName2">
                 <label for="role">Role</label>
-                <select id="role" title="."formControlName="selectedRol"  >
+                <select id="role" title="." formControlName="selectedRol">
                     <option value="student">Student</option>
                     <option value="teacher">Teacher</option>
                     <option value="staff">Staff</option>
                     <option value="admin">Admin</option>
                 </select>
-                <button type="button" class="staff-button" id="user-consult">Consult</button>
                 <button type="button" class="staff-button" id="user-submit" (click)="saveUser()">Submit</button>
-                <button type="button" class="staff-button" id="user-delete">Delete</button>
+                <button type="button" class="staff-button" id="user-consult" (click)="option = '0'">cancel</button>
             </form>
+            }@else if (option === '2') {
+            <form action="" class="manage-form" id="userForm" [formGroup]="userForm2">
+                <label for="user-id">ID</label>
+                <input type="text" name="user-id" id="user-id" formControlName="id">
+                <button type="button" class="staff-button" id="user-submit" (click)="consultUser()">Submit</button>
+                <button type="button" class="staff-button" id="user-consult" (click)="option = '0'">cancel</button>
+            </form>
+            }@else if (option === '3') {
+            <div class="data-display">
+                <h4>User</h4>
+                <p><strong>ID:</strong> {{ userFound.id }}</p>
+                <p><strong>Name:</strong> {{ userFound.firstName }} {{ userFound.secondName }}</p>
+                <p><strong>Last Name:</strong> {{ userFound.lastName1 }} {{ userFound.lastName2 }}</p>
+                <p><strong>Email:</strong> {{ userFound.Credential?.email }}</p>
+                <button type="button" class="staff-button" id="user-submit" (click)="deleteUser()">delete</button>
+                <button type="button" class="staff-button" id="user-consult" (click)="option = '0'">cancel</button>
+            </div>
+
+            <!-- <button type="button" class="staff-button" id="user-consult" (click)="eleteUser()">Delete</button> -->
+
+            }
+
         </section>
         <section class="chart" id="chart-5">
             <h3>Close Semester</h3>
-            
+
         </section>
     </main>
 
@@ -130,16 +183,16 @@
             <h3>About Us</h3>
             <a href="../views/home/home.html">Home</a>
             <a href="../../views/home/home.html#mission">Mission</a>
-            <a href="../../views/home/home.html#vision">Vision</a>
+            <a href="../../views/home/home.html#vision">Vision</a>d
         </div>
         <div class="social">
             <h3>Our Social Networks</h3>
             <div class="icons">
                 <i class='bx bxl-facebook'></i>
-                <i class='bx bxl-youtube' ></i>
-                <i class='bx bxl-instagram-alt' ></i>
+                <i class='bx bxl-youtube'></i>
+                <i class='bx bxl-instagram-alt'></i>
             </div>
         </div>
     </footer>
- 
+
 </body>
