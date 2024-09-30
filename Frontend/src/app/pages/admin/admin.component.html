@@ -35,6 +35,12 @@
         </section>
         <section class="chart" id="chart-2">
             <h3>Manage Courses</h3>
+            @if(option !=='1' && option !=='2' && option !=='3'){
+            <button type="button" class="staff-button" id="user-consult" (click)="option ='1' ">create</button>
+            <button type="button" class="staff-button" id="user-consult" (click)="option = '2'">consult</button>
+            }
+            @if (option === '1') {
+
             <div class="div-chart">
                 <form action="" class="manage-form">
                     <label for="c-subject-id">Subject ID</label>
@@ -68,12 +74,34 @@
                     <input type="text" name="classroom" id="classroom">
                     <label for="schedule-id">Schedule ID</label>
                     <input type="text" name="schedule-id" id="schedule-id">
-                    <button type="button" class="staff-button" id="course-consult">Consult</button>
+
                     <button type="button" class="staff-button" id="course-submit">Submit</button>
-                    <button type="button" class="staff-button" id="course-delete">Delete</button>
+                    <button type="button" class="staff-button" id="user-consult" (click)="option = '0'">cancel</button>
                 </form>
             </div>
+            <button type="button" class="staff-button" id="user-consult" (click)="option = '0'">cancel</button>
+            }@else if (option === '2') {
+            <form action="" class="manage-form" id="userForm" [formGroup]="assignmentForm2">
+                <label for="user-id">Course ID</label>
+                <input type="text" name="Course-id" id="assignment-id" formControlName="asId">
+                <button type="button" class="staff-button" id="user-submit"
+                    (click)="consultAssignment()">Submit</button>
+
+                <button type="button" class="staff-button" id="user-consult" (click)="option = '0'">cancel</button>
+            </form>
+            }@else if (option === '3') {
+            <div class="data-display">
+                <h4>User</h4>
+                <p><strong>Asid:</strong> {{ assignmentFound.asId }}</p>
+                <p><strong>Name:</strong> {{ assignmentFound.name }}</p>
+                <p><strong>Semester:</strong> {{assignmentFound.semester }}</p>
+                <button type="button" class="staff-button" id="user-consult" (click)="option = '0'">cancel</button>
+                <button type="button" class="staff-button" id="user-submit" (click)="deleteAssignment()">delete</button>
+            </div>
+            }
+
         </section>
+
         <section class="chart" id="chart-3">
             <h3>Subjects</h3>
             @if(option !=='1' && option !=='2' && option !=='3'){

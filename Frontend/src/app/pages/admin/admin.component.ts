@@ -11,8 +11,10 @@ import { Assignment } from '../../interfaces/assginment';
 import { AssignmentService } from '../../services/assignment.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Teacher } from '../../interfaces/teacher';
+import { CourseScheduleService } from '../../services/courseSchedule.service';
 import { catchError, of, switchMap, tap } from 'rxjs';
 import Swal from 'sweetalert2';
+import { CourseSchedule } from '../../interfaces/courseSchedule';
 
 
 @Component({
@@ -46,9 +48,33 @@ export class AdminComponent {
     asId: new FormControl('', Validators.required),
   })
 
+  courseScheduleForm = new FormGroup({
+
+    teacherId: new FormControl('', Validators.required),
+    asId: new FormControl('', Validators.required),
+
+
+    day1: new FormControl('', Validators.required),
+    startTime1: new FormControl('', Validators.required),
+    endTime1: new FormControl('', Validators.required),
+    room1: new FormControl('', Validators.required),
+
+
+    day2: new FormControl(''),
+    startTime2: new FormControl(''),
+    endTime2: new FormControl(''),
+    room2: new FormControl('')
+  });
+
+  scheduleConsultForm = new FormGroup({
+    courseId: new FormControl('', Validators.required)
+  });
+
+  scheduleFound: any = {};
+
 
   constructor(private router: Router, private _studentServices: StudentService, private _staffService: StaffService,
-    private _teacherService: TeacherService, private _assignmentService: AssignmentService) {
+    private _teacherService: TeacherService, private _assignmentService: AssignmentService, private _scheduleService: CourseScheduleService) {
 
 
   }
@@ -316,6 +342,7 @@ export class AdminComponent {
     }
   }
 
+
   reload() {
     localStorage.removeItem('pageReloaded');
   }
@@ -325,6 +352,7 @@ export class AdminComponent {
     localStorage.removeItem('pageReloaded');
     this.router.navigate(['']);
   }
+
 
 
 
