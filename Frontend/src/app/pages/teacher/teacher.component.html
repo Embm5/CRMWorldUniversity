@@ -114,9 +114,10 @@
                 <tbody>
                     @for (item of schedule; track item.courseId; let i = $index) {
                     <tr>
-                        <td rowspan="3">{{item.Assignment.name}}</td>
-                        <td rowspan="3">{{item.Assignment.semester}}</td>
-                        <td rowspan="3">{{item.Teacher.Person.firstName + " " + item.Teacher.Person.lastName1 + " " +
+                        <td [rowSpan]="item.CourseSchedules.length">{{item.Assignment.name}}</td>
+                        <td [rowSpan]="item.CourseSchedules.length">{{item.Assignment.semester}}</td>
+                        <td [rowSpan]="item.CourseSchedules.length">{{item.Teacher.Person.firstName + " " +
+                            item.Teacher.Person.lastName1 + " " +
                             item.Teacher.Person.lastName2}}</td>
                         <td>{{item.CourseSchedules[0].day}}</td>
                         <td>{{item.CourseSchedules[0].startTime}}</td>
@@ -171,7 +172,7 @@
 
                 <h3>Add Pending</h3>
                 <form id="pendingForm">
-                    <input type="date" id="pendingDate" required>
+                    <input type="date" id="pendingDate" required title=".">
                     <input type="text" id="pendingText" placeholder="Enter your pending..." required>
                     <button type="submit">Add</button>
                 </form>
@@ -190,11 +191,11 @@
             <p>(604) 444 76 54</p>
             <p>Whatsapp: (57) 3008848512</p>
         </div>
-        <div>
+        <div class="about">
             <h3>About Us</h3>
             <a href="../../views/home/home.html">Home</a>
-            <p>Mission</p>
-            <p>Vision</p>
+            <a href="../../views/home/home.html#mission">Mission</a>
+            <a href="../../views/home/home.html#vision">Vision</a>
         </div>
         <div class="social">
             <h3>Our Social Networks</h3>
