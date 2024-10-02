@@ -11,5 +11,5 @@ export interface CourseSchedule {
         endTime: string;
         room: string;
     }[];
-    course: Course;
+    course?: Course;
 }

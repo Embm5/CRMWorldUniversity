@@ -101,7 +101,7 @@ export class CourseScheduleController {
           },
           {
             model: CourseSchedule,
-            attributes: ['day', 'startTime', 'endTime', 'classroom']
+            attributes: ['day', 'startTime', 'endTime', 'room']
           }
         ]
       })
