@@ -494,15 +494,12 @@ export class AdminComponent {
       });
     }
   }
-<<<<<<< HEAD
-=======
 
   filterByAssignmentName(coursesArray: any[], assignmentName: string): any[] {
     const filteredCourses = coursesArray.filter(course => course.Assignment.name === assignmentName);
     return filteredCourses.length > 0 ? filteredCourses : [];
   }
 
->>>>>>> 86ebac6e7120c9fe67f8d604bdc0d7719ed2b592
   setAllEnrollsInactive() {
     Swal.fire({
       title: 'Are you sure?',
