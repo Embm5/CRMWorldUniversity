@@ -100,6 +100,10 @@ export class CourseScheduleController {
             include: [{ model: Person, attributes: ['firstName', 'lastName1', 'lastName2'] }]
           },
           {
+            model: Assignment,
+            attributes: ['name', 'semester']
+          },
+          {
             model: CourseSchedule,
             attributes: ['day', 'startTime', 'endTime', 'room']
           }
