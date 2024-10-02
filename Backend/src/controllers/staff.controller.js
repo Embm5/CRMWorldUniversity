@@ -6,7 +6,10 @@ export class StaffController {
   getAllStaff = async (req, res) => {
     try {
       const staffs = await Staff.findAll({
-        include: Person
+        include: [{
+          model: Person,
+          include: [{ model: Credential }]
+        }]
       })
       res.json(staffs)
     } catch (error) {

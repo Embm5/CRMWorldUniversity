@@ -1,0 +1,308 @@
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    color: black;
+    background-image: url('../img/background.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #003366;
+    background-position: center;
+}
+
+.grid-container{
+    height: 250vh;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 0.3fr 0.4fr 0.1fr 1.5fr 0.2fr;
+}
+
+
+/*header*/
+
+.logo{
+    width: 10rem;
+    height: 9rem;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+    background-color: #BFCAD7;
+}
+
+.flex-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button{
+    font-size: large;
+    border-radius: 30px;
+    border: none;
+    padding: 0.7rem 2.1rem;
+    background-color: #ffffff;
+}
+
+.icon-person{
+    width: 5rem;
+    height: 5rem;
+}
+
+
+/*aside*/
+
+.aside{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 0 30px;
+}
+
+.title {
+    color: #003366;
+    font-size: 4rem;
+}
+
+.img-aside{
+    /* width: ancho que quiera en rem; */
+    /* height: altura que quiera en rem; */
+    width: 23rem;
+    height: 15rem;
+}
+
+
+/*nav*/
+
+.nav {
+    background-color: #024873;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+}
+
+.feature {
+    color: #ffffff;
+}
+
+
+/*main*/
+
+.main{
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*charts*/
+
+.first-chart{
+    background-color: #ffffff;
+    height: 60vh;
+    width: 80%;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    justify-self: center;
+    align-self: center;
+}
+
+.first-chart i{
+    font-size: 5em;
+}
+
+.chart{
+    background-color: #ffffff;
+    /* height: 120vh; */
+    width: 80%;
+    border-radius: 30px;
+    display: none;
+    /* grid-template-rows: .2fr 1fr; */
+    align-items: start;
+    justify-content: center;
+    z-index: 1;
+    margin-bottom: 20px;
+}
+
+.chart h3{
+    font-size: 3rem;
+    color: #003366;
+    text-align: center;
+}
+
+.second-header{
+    color: #ffffff;
+}
+
+
+/*inside charts*/
+
+.crud{
+    gap: 30px;
+}
+
+.crud a{
+    color: #003366;
+    padding: 3px 20px 3px 20px;
+    border-radius: 5px;
+}
+
+.crud-active{
+    border-top: 2px solid #003366;
+    border-right: 2px solid #003366;
+    border-left: 2px solid #003366;
+}
+
+.chart1{
+    display: none;
+}
+
+.sections{
+    border-top: 2px solid #003366;
+}
+
+
+/*footer*/
+
+.footer{
+    background-color: #BFCAD7;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 40px;
+}
+
+.footer a {
+    color: black;
+}
+
+.about{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.social{
+    text-align: center;
+}
+
+.icons{
+    display: flex;
+    justify-content: space-around;
+}
+
+.icons i {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/*effects*/
+
+button {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+button:hover, 
+a:hover,
+.icons i:hover{
+    color: grey;
+}
+
+
+/* Estilos generales del formulario */
+#userForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px; /* Ajusta el ancho máximo del formulario */
+    margin: 0 auto; /* Centrar en la pantalla */
+    padding: 2rem;
+    border: 2px solid #003366;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de los campos del formulario */
+#userForm label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #003366; /* Cambia el color del texto */
+}
+
+#userForm input {
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff; /* Fondo blanco */
+    font-size: 1rem;
+}
+
+/* Estilo de los botones */
+#userForm button {
+    background-color: #003366;
+    color: white;
+    padding: 0.7rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+#userForm button:hover {
+    background-color: #002244;
+}
+
+/* Estilo de mensaje o campos con datos obtenidos */
+.data-display {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: #e8f4fc;
+    border: 1px solid #003366;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+}
+
+.data-display p {
+    margin: 0.5rem 0;
+    color: #003366;
+    font-size: 1rem;
+    font-weight: 500;
+}

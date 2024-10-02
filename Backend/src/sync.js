@@ -13,9 +13,11 @@ import './models/califications.model.js'
 import './models/classMaterial.model.js'
 import './models/followUp.model.js'
 import './models/assignment.model.js'
+import { inserts } from './models/inserts.js'
 
 try {
   await sequelize.sync({ force: true })
+  await inserts()
 } catch (error) {
   console.error('Error connecting to the database', error)
 }

@@ -7,7 +7,10 @@ export class StudentController {
   getAllStudents = async (req, res) => {
     try {
       const students = await Student.findAll({
-        include: Person
+        include: [{
+          model: Person,
+          include: [{ model: Credential }]
+        }]
       })
       res.json(students)
     } catch (error) {
@@ -44,7 +47,11 @@ export class StudentController {
   getStudent = async (req, res) => {
     try {
       const { id } = req.params
-      const student = await Person.findByPk(id)
+      const student = await Person.findByPk(id, {
+        include: [{
+          model: Credential
+        }]
+      })
       if (student) {
         res.json(student)
       } else {

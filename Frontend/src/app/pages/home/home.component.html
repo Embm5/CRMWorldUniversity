@@ -1,1 +1,95 @@
-<p>home works!</p>
+<body class="grid-container">
+    <header class="header">
+        <a href="/" (click)="reload()">
+            <img src="../../img/Logo.png" alt="" class="logo">
+        </a>
+        <div class="flex-container">
+            @if (rol!=="") {<button class="button" [routerLink]="['/',rol]">{{ rol }}</button>}
+            @else {<button class="button" [routerLink]="['/login']">Login</button>}
+            <img src="../../img/iconperson.png" alt="" class="icon-person">
+        </div>
+    </header>
+
+    <aside class="aside">
+        <div class="titles">
+            <p class="title">World University</p>
+            <p class="subtitle">for the world</p>
+        </div>
+
+        <img src="../../img/students-grey.png" alt="" class="img-aside">
+    </aside>
+
+    <nav class="nav">
+        <section class="list">
+            <p><b>
+                    <a href="../home/home.html" class="feature">Home</a>
+                    |
+                    <a href="#about-us" class="feature">About Us</a>
+                    |
+                    <a href="#mission" class="feature">Mission</a>
+                    |
+                    <a href="#vision" class="feature">Vision</a>
+                </b></p>
+        </section>
+    </nav>
+
+    <main class="main">
+        <section class="section-1">
+            <img src="../../img/students1.png" alt="" class="main-img">
+        </section>
+
+        <section class="section-2">
+            <div class="rectangle" id="about-us">
+                <h4>About Us</h4>
+                <p>
+                    Welcome to World university, a place where tradition meets innovation. Established in 2020, we have
+                    been committed to providing a high-quality education that empowers students to become leaders in
+                    their fields. Our vibrant community fosters intellectual curiosity, creativity, and critical
+                    thinking, preparing our graduates for success in an ever-changing world.
+                </p>
+            </div>
+            <div class="rectangle" id="mission">
+                <h4>Mission</h4>
+                <p>
+                    To inspire and educate students to achieve their full potential, fostering personal and academic
+                    growth in a supportive environment.
+                </p>
+            </div>
+            <div class="rectangle" id="vision">
+                <h4>Vision</h4>
+                <p>
+                    To be a leading institution known for excellence in education and a positive impact on society.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div id="contact">
+            <h3>Contact Us</h3>
+            <p>43, Av. Carabobo #42, Medellin, Antioquia</p>
+            <p>(604) 444 76 54</p>
+            <p>Whatsapp: (57) 3008848512</p>
+        </div>
+        <div class="about">
+            <h3>About Us</h3>
+            <a href="../../views/home/home.html">Home</a>
+            <a href="#mission">Mission</a>
+            <a href="#vision">Vision</a>
+        </div>
+        <div class="social">
+            <h3>Our Social Networks</h3>
+            <div class="icons">
+                <a href="https://www.facebook.com/">
+                    <i class='bx bxl-facebook'></i>
+                </a>
+                <a href="https://www.youtube.com/">
+                    <i class='bx bxl-youtube'></i>
+                </a>
+                <a href="https://www.instagram.com/">
+                    <i class='bx bxl-instagram-alt'></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>

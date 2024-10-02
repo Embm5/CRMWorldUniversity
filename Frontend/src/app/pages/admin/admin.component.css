@@ -1,0 +1,142 @@
+
+.img-aside {
+    width: 10em;
+    height: 15em;
+}
+
+.sections{
+    padding-top: 30px;
+}
+
+.sections section{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.manage-form {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    padding: 2rem;
+    border: 2px solid #003366;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.manage-form label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.manage-form input {
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.staff-button {
+    background-color: #003366;
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.staff-button:hover {
+    background-color: #002244;
+}
+
+.table thead {
+    background-color: #003366;
+    color: white;
+}
+
+/* Estilos generales del formulario */
+#userForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px; /* Ajusta el ancho máximo del formulario */
+    margin: 0 auto; /* Centrar en la pantalla */
+    padding: 2rem;
+    border: 2px solid #003366;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de los campos del formulario */
+#userForm label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #003366; /* Cambia el color del texto */
+}
+
+#userForm input {
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff; /* Fondo blanco */
+    font-size: 1rem;
+}
+
+/* Estilo de los botones */
+#userForm button {
+    background-color: #003366;
+    color: white;
+    padding: 0.7rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+#userForm button:hover {
+    background-color: #002244;
+}
+
+/* Estilo de mensaje o campos con datos obtenidos */
+.data-display {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: #e8f4fc;
+    border: 1px solid #003366;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+}
+
+.data-display p {
+    margin: 0.5rem 0;
+    color: #003366;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.data-display {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: #e8f4fc;
+    border: 1px solid #003366;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+}
+
+.data-display p {
+    margin: 0.5rem 0;
+    color: #003366;
+    font-size: 1rem;
+    font-weight: 500;
+}

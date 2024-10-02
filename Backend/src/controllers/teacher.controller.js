@@ -7,7 +7,10 @@ export class TeacherController {
   getaAllTeachers = async (req, res) => {
     try {
       const teachers = await Teacher.findAll({
-        include: Person
+        include: [{
+          model: Person,
+          include: [{ model: Credential }]
+        }]
       })
       res.json(teachers)
     } catch (error) {
