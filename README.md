@@ -9,8 +9,6 @@
 - [Dates](#dates)
 - [Purpose](#purpose)
 - [Functionalities](#functionalities)
-  - [Funciones básicas](#funciones-básicas)
-  - [Configuración avanzada](#configuración-avanzada)
 - [Instructions for Use](#instructions-for-use)
   - [Requirements](#requirements)
   - [Installing](#installing)
