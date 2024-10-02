@@ -31,7 +31,7 @@
 - Design:august 24, 2024
 - Construction: september 1, 2024
 
-## Purpose / Focus
+## Purpose
 
 This project was developed in an academic context as a project for the software construction course at Politécnico Colombiano Jaime Isaza Cadavid University
 
@@ -39,11 +39,11 @@ This project was developed in an academic context as a project for the software 
 
 - Log in
 - Create student
-- create teacher 
-- create staff
-- create assignment
-- create course 
-- view schedule teacher 
+- Create teacher 
+- Create staff
+- Create assignment
+- Create course 
+- View schedule teacher 
 
 
 # Instructions for Use
@@ -72,29 +72,30 @@ otherwise, you can download the zip file of the project.
 
 First connect with postgres user or another user with superuser privileges, then in Login/Group roles, create new Login/Group
 
-![Create User](https://cdn.discordapp.com/attachments/1037567655424569344/1226744128545624094/image.png?ex=6625e180&is=66136c80&hm=e749501908eb2d94d4422fa7ec301c1c89549eabb8fc56a3f93419f3fcefc7b9&)
+![Create User](views/img/step1.png)
 
 the user name is "CRMWU", in Definition put the password "1234" and configure the privileges.
 
-![Admin User](https://cdn.discordapp.com/attachments/1037567655424569344/1227017339954921513/image.png?ex=6626dff2&is=66146af2&hm=4fd72eb7ccb04d363fcde06d8d161b3f66b30ab0603f5df309228b86ebef7d8c&)
+![Admin User Name](views/img/step2.png)
+![Admin User Password](views/img/step3.png)
 
-![user Privileges](https://cdn.discordapp.com/attachments/1037567655424569344/1227017408871665775/image.png?ex=6626e003&is=66146b03&hm=624d3a076844e8a94aba883fc4bab986fc9793917e794fcf3f8e78904d7ae11d&)
+![User Privileges](views/img/step4.png)
 
 once the user has been created, proceed to register a new server wiht the name "CRMWU_DB"
 
-![new server](https://cdn.discordapp.com/attachments/1037567655424569344/1226745562208927794/image.png?ex=6625e2d5&is=66136dd5&hm=bda080d1a89b9713752b625a52e21cd284075252b7c82d7080686457395ffaa1&)
+![New server](views/img/step5.png)
 
-![Register - Server](https://cdn.discordapp.com/attachments/1037567655424569344/1227018162654941225/image.png?ex=6626e0b6&is=66146bb6&hm=6fe9c09f642e3186f7e40682e0a53111ea1002aa11807f05fc4aa369f6bc6196&)
+![Register - Server](views/img/step6.png)
 
-In connection configure the hostname, in unsername place the user previously created and the password
+In connection configure the hostname, in username place the user previously created and the password
 
-![connection](https://cdn.discordapp.com/attachments/1037567655424569344/1227018216065466521/image.png?ex=6626e0c3&is=66146bc3&hm=efbe0c4445aadc2dd030dbca2368862476a444c10e81cd53bf2c7c7badfa15a2&)
+![connection](views/img/step7.png)
 
 Finally, proceed to create a new database with the name "CRMWU_DB" in the newly created server instance
 
-![create DB](https://cdn.discordapp.com/attachments/1037567655424569344/1226747124151226428/image.png?ex=6625e44a&is=66136f4a&hm=a073ca712996d440a775d3dc2738f51b441568b388687f92abf741fe407744b4&)
+![Create DB](views/img/step8.png)
 
-![create DB CRMWU_DB](https://cdn.discordapp.com/attachments/1037567655424569344/1227018940404863026/image.png?ex=6626e170&is=66146c70&hm=cd7fce12c181e293c15f5bf322b8c6f25f6ff00806d8ef36bd9231295e3a985d&)
+![Create DB CRMWU_DB](views/img/step9.png)
 
 ---
 
@@ -109,9 +110,9 @@ This action only needs to be performed once!
 
 ---
 
-### Start Project
+### Starting the project
 
-if you have already performed the previous steps, you can initialize the project by running `npm start` located in the project's main folder. then you can view the project with any browser by visiting
+If you have already performed the steps above, you can initialize the project by running `npm start` located in the root folder of the project. You can then view the project with any browser by visiting
 http://localhost:4200/
 
 # Construction details
