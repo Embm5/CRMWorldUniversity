@@ -121,7 +121,7 @@ export class AdminComponent {
           secondName: this.userForm.value.secondName!,
           lastName1: this.userForm.value.lastName1!,
           lastName2: this.userForm.value.lastName2!,
-          email: name + lastName1 + lastName2 + code + 'student@worlduniversity.com',
+          email: name + lastName1 + lastName2 + '-student@worlduniversity.com',
           password: name.toUpperCase() + '@Wu1',
         }
         console.log(student)
@@ -144,7 +144,7 @@ export class AdminComponent {
           secondName: this.userForm.value.secondName!,
           lastName1: this.userForm.value.lastName1!,
           lastName2: this.userForm.value.lastName2!,
-          email: name + lastName1 + lastName2 + 'staff@worlduniversity.com',
+          email: name + lastName1 + lastName2 + '-staff@worlduniversity.com',
           password: name.toUpperCase() + '@Wu1',
         }
         console.log(staff)
@@ -165,7 +165,7 @@ export class AdminComponent {
           secondName: this.userForm.value.secondName!,
           lastName1: this.userForm.value.lastName1!,
           lastName2: this.userForm.value.lastName2!,
-          email: name + lastName1 + lastName2 + 'teacher@worlduniversity.com',
+          email: name + lastName1 + lastName2 + '-teacher@worlduniversity.com',
           password: name.toUpperCase() + '@Wu1',
         }
         console.log(teacher)
@@ -494,15 +494,55 @@ export class AdminComponent {
       });
     }
   }
-<<<<<<< HEAD
-=======
 
   filterByAssignmentName(coursesArray: any[], assignmentName: string): any[] {
     const filteredCourses = coursesArray.filter(course => course.Assignment.name === assignmentName);
     return filteredCourses.length > 0 ? filteredCourses : [];
   }
+  deleteCourseSchedule(courseId: number) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    })
+      .then((result) => {
+        this._scheduleService.deleteCourseSchedule(courseId).subscribe({
+          next: (response) => {
+            Swal.fire({
+              title: 'Assignment deleted successfully',
+              icon: 'success',
+              showConfirmButton: false,
+              timer: 1500
+            })
+            this.option = '0';
+          },
+          error: (error: HttpErrorResponse) => {
 
->>>>>>> 86ebac6e7120c9fe67f8d604bdc0d7719ed2b592
+            Swal.fire({
+              title: 'Error deleting assignment.',
+              icon: 'error',
+              text: 'Assignment not found or already deleted.',
+              showConfirmButton: false,
+              timer: 1500
+            })
+          }
+        });
+
+        Swal.fire({
+          title: 'Invalid form data',
+          icon: 'error',
+          showConfirmButton: false,
+          timer: 1500
+        })
+
+      })
+
+  }
+
   setAllEnrollsInactive() {
     Swal.fire({
       title: 'Are you sure?',

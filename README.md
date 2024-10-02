@@ -52,7 +52,7 @@ First connect with postgres user or another user with superuser privileges, then
 
 ![Create User](https://cdn.discordapp.com/attachments/1037567655424569344/1226744128545624094/image.png?ex=6625e180&is=66136c80&hm=e749501908eb2d94d4422fa7ec301c1c89549eabb8fc56a3f93419f3fcefc7b9&)
 
-the user name is "CRMWU", in Definition put the password "1234" and configure the privileges.
+the user name is "CRMWU", in Definition put the password "1234" and configure the privileges.git
 
 ![Admin User](https://cdn.discordapp.com/attachments/1037567655424569344/1227017339954921513/image.png?ex=6626dff2&is=66146af2&hm=4fd72eb7ccb04d363fcde06d8d161b3f66b30ab0603f5df309228b86ebef7d8c&)
 
