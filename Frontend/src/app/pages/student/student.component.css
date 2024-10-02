@@ -1,5 +1,4 @@
-
-.img-aside{
+.img-aside {
     width: 16rem;
     height: 15rem;
 }
@@ -9,7 +8,7 @@
     color: white;
 }
 
-.sections section{
+.sections section {
     display: none;
     flex-direction: column;
     align-items: center;
@@ -51,4 +50,24 @@
 
 .student-button:hover {
     background-color: #002244;
+}
+
+/* --------------- */
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.student-table th,
+.student-table td {
+    padding: 12px;
+    border: 1px solid #040101;
+}
+
+.student-table th {
+    background-color: #003366FF;
+    color: #ddd;
 }

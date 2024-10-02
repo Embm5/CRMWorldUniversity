@@ -4,6 +4,7 @@ import { Enroll } from '../models/enroll.model.js'
 import { Student } from '../models/student.model.js'
 import { Person } from '../models/person.model.js'
 import { EnrollCourse } from '../models/enrollCourse.model.js'
+import { Assignment } from '../models/assignment.model.js'
 
 export class EnrollCourseController {
   getAllEnrollCourses = async (req, res) => {
@@ -37,14 +38,17 @@ export class EnrollCourseController {
       const { studentId, courses } = req.body
 
       const studentEnroll = await Enroll.findOne({ where: { studentId, status: 'ACTIVE' } })
-      if (!studentEnroll) {
-        return res.status(404).json({ message: 'Estudiante no encontrado o no activo' })
+      if (studentEnroll) {
+        return res.status(404).json({ message: 'Student has already enroll' })
       }
+      const newEnroll = await Enroll.create({
+        studentId
+      })
 
       const enrollments = await Promise.all(
         courses.map(async (courseId) => {
           return await EnrollCourse.create({
-            studentId,
+            enrollID: newEnroll.enrollID,
             courseId,
             approved: false
           })
@@ -61,13 +65,16 @@ export class EnrollCourseController {
     try {
       const { studentId } = req.params
 
-      const studentEnroll = await Enroll.findOne({ where: { studentId, status: 'ACTIVE' } })
+      const studentEnroll = await Enroll.findOne({
+        where: { studentId, status: 'ACTIVE' }
+      })
+
       if (!studentEnroll) {
-        return res.status(404).json({ message: 'Estudiante no encontrado o no activo' })
+        return res.status(404).json({ message: 'Student not found or inactive' })
       }
 
       const enrollments = await EnrollCourse.findAll({
-        where: { studentId },
+        where: { enrollID: studentEnroll.enrollID },
         include: [
           {
             model: Course,
@@ -75,6 +82,10 @@ export class EnrollCourseController {
               {
                 model: CourseSchedule,
                 attributes: ['day', 'startTime', 'endTime', 'room']
+              },
+              {
+                model: Assignment,
+                attributes: ['name', 'semester']
               }
             ]
           }
@@ -84,7 +95,8 @@ export class EnrollCourseController {
       const response = enrollments.map(enrollment => ({
         courseId: enrollment.courseId,
         approved: enrollment.approved,
-        schedules: enrollment.Course.CourseSchedules
+        schedules: enrollment.Course.CourseSchedules,
+        subjectName: enrollment.Course.Assignment?.name
       }))
 
       res.status(200).json(response)
@@ -119,18 +131,44 @@ export class EnrollCourseController {
     try {
       const { studentId, courseId } = req.params
 
+      const studentEnroll = await Enroll.findOne({
+        where: { studentId, status: 'ACTIVE' }
+      })
+
+      if (!studentEnroll) {
+        return res.status(404).json({ message: 'Student not found or inactive' })
+      }
+
       const enrollCourse = await EnrollCourse.findOne({
-        where: { studentId, courseId }
+        where: { enrollID: studentEnroll.enrollID, courseId }
       })
 
       if (!enrollCourse) {
-        return res.status(404).json({ message: 'EnrollCourse no encontrado' })
+        return res.status(404).json({ message: 'EnrollCourse not found' })
       }
 
       await enrollCourse.destroy()
       res.status(204).send()
     } catch (error) {
       return res.status(500).json({ message: error.message })
+    }
+  }
+
+  setAllEnrollsInactive = async (req, res) => {
+    try {
+      const [numberOfAffectedRows] = await Enroll.update(
+        { status: 'INACTIVE' },
+        { where: { status: 'ACTIVE' } }
+      )
+
+      if (numberOfAffectedRows === 0) {
+        return res.status(404).json({ message: 'No active enrollments found' })
+      }
+
+      res.status(200).json({ message: 'All active enrollments have been set to INACTIVE' })
+    } catch (error) {
+      console.error('Error setting enrollments inactive:', error)
+      return res.status(500).json({ message: 'Failed to set enrollments to INACTIVE', error: error.message })
     }
   }
 }

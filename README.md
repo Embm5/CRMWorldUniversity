@@ -1,13 +1,35 @@
-# CRMWORLUNIVERSITY
+# CRMWORLDUNIVERSITY
 
 ## Description
+ The Academic CRM is a web-based platform designed to enhance the relationship management between the university and its students, faculty, and administration. It streamlines academic processes, improving communication and tracking throughout students' educational journeys.
+
+ ## Table of Contents
+
+- [Description](#description)
+- [Dates](#dates)
+- [Purpose](#purpose)
+- [Functionalities](#functionalities)
+- [Instructions for Use](#instructions-for-use)
+  - [Requirements](#requirements)
+  - [Installing](#installing)
+  - [Database Creation](#database-creation)
+  - [Sequelize synchronization](#Sequelize-synchronization)
+  - [Start Project](#start-project)
+- [Construction details](#construction-details)
+  - [Technologies Used](#technologies-used)
+- [Resources used](#resources-used)
+- [Contributors](#contributors)
+- [Conctact](#conctact)
+
+
+---
 
 
 ## Dates
 
-- Analysis: , 2024
-- Design: , 2024
-- Construction: , 2024
+- Analysis:august 22, 2024
+- Design:august 24, 2024
+- Construction: september 1, 2024
 
 ## Purpose / Focus
 
@@ -17,11 +39,11 @@ This project was developed in an academic context as a project for the software 
 
 - Log in
 - Create student
--create teacher 
+- create teacher 
 - create staff
 - create assignment
 - create course 
-- enrollment 
+- view schedule teacher 
 
 
 # Instructions for Use
@@ -52,7 +74,7 @@ First connect with postgres user or another user with superuser privileges, then
 
 ![Create User](https://cdn.discordapp.com/attachments/1037567655424569344/1226744128545624094/image.png?ex=6625e180&is=66136c80&hm=e749501908eb2d94d4422fa7ec301c1c89549eabb8fc56a3f93419f3fcefc7b9&)
 
-the user name is "Admin", in Definition put the password "1234" and configure the privileges.
+the user name is "CRMWU", in Definition put the password "1234" and configure the privileges.
 
 ![Admin User](https://cdn.discordapp.com/attachments/1037567655424569344/1227017339954921513/image.png?ex=6626dff2&is=66146af2&hm=4fd72eb7ccb04d363fcde06d8d161b3f66b30ab0603f5df309228b86ebef7d8c&)
 
@@ -92,14 +114,52 @@ This action only needs to be performed once!
 if you have already performed the previous steps, you can initialize the project by running `npm start` located in the project's main folder. then you can view the project with any browser by visiting
 http://localhost:4200/
 
+# Construction details
+The system follows a three-tier architecture (frontend, backend, database).
+
+- Frontend: A web application that directly interacts with users (students, admin, staff and teacher).
+- Backend: A REST API that processes requests and manages business logic.
+- Database: A relational database to store information about students, admin, staff and teacher.
+
+## Technologies Used
+Frontend
+- **Framework**: Angular  
+
+Backend
+- **Language**: Node.js with Express
+
+Database
+- **Relational database**: PostgreSQL
+
+---
+
+# Resources used
+
+- **Icons**: We used [Boxicons](https://boxicons.com/) for all the icons across the application. Boxicons is an easy-to-use, open-source library of icons perfect for modern web apps.
+
+- **Backend**: The server is built with [Node.js](https://nodejs.org/) and [Express](https://expressjs.com/), providing a robust REST API.
+
+- **Database**: We used [PostgreSQL](https://www.postgresql.org/) as our relational database. You can download and install it from the following links:
+  - [PostgreSQL Download](https://www.postgresql.org/download/)
+  - [PostgreSQL Documentation](https://www.postgresql.org/docs/)
+  
+- **Framework for Building Web Apps**: The project also includes [Angular](https://angular.io/) for building dynamic web applications. You can install Angular by following these links:
+  - [Angular CLI Installation Guide](https://angular.io/cli)
+  - [Angular Documentation](https://angular.io/docs)
+
+
 # Contributors
 
-- 
-- 
-- 
+- Emmanuel Bolivar Marin
+- Maria Jose Arcila Cano
+- David Correa Posada
+- Manuela Diaz Arboleda 
 
 # Contact
 
 If required. You can contact us by email at:
 
-- [emmanuel_boolivar82212@elpoli.edu.co](mailto:emmanuel_bolivar82212@elpoli.edu.co).
+- [emmanuel_bolivar82212@elpoli.edu.co](mailto:emmanuel_bolivar82212@elpoli.edu.co).
+- [david_correa82212@elpoli.edu.co](mailto:david_correa82212@elpoli.edu.co)
+- [manuela_diaz82212@elpoli.edu.co](mailto:manuela_diaz82212@elpoli.edu.co)
+- [maria_arcila82221@elpoli.edu.co](mailto:maria_arcila82221@elpoli.edu.co)

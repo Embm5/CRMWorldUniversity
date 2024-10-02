@@ -42,62 +42,95 @@
             @if (option === '1') {
 
             <div class="div-chart">
-                <form action="" class="manage-form">
+                <form action="" class="manage-form" [formGroup]="courseScheduleForm">
                     <label for="c-subject-id">Subject ID</label>
-                    <input type="text" name="c-subject-id" id="c-subject-id">
-                    <label for="course-id">Course ID</label>
-                    <input type="text" name="course-id" id="course-id">
+                    <input type="text" name="c-subject-id" id="c-subject-id" formControlName="asId">
                     <label for="teacher-id">Teacher ID</label>
-                    <input type="text" name="teacher-id" id="teacher-id">
+                    <input type="text" name="teacher-id" id="teacher-id" formControlName="teacherId">
                     <label for="day">Day</label>
                     <div>
                         <label for="monday">Monday</label>
-                        <input type="checkbox" name="monday" id="monday">
+                        <input type="checkbox" name="monday" id="monday" formControlName="monday">
                         <br>
                         <label for="tuesday">Tuesday</label>
-                        <input type="checkbox" name="tuesday" id="tuesday">
+                        <input type="checkbox" name="tuesday" id="tuesday" formControlName="tuesday">
                         <br>
                         <label for="wednesday">Wednesday</label>
-                        <input type="checkbox" name="wednesday" id="wednesday">
+                        <input type="checkbox" name="wednesday" id="wednesday" formControlName="wednesday">
                         <br>
                         <label for="thursday">Thursday</label>
-                        <input type="checkbox" name="thursday" id="thursday">
+                        <input type="checkbox" name="thursday" id="thursday" formControlName="thursday">
                         <br>
                         <label for="friday">Friday</label>
-                        <input type="checkbox" name="friday" id="friday">
+                        <input type="checkbox" name="friday" id="friday" formControlName="friday">
                     </div>
                     <label for="start-time">Start Time</label>
-                    <input type="time" name="start-time" id="start-time">
+                    <input type="time" name="start-time" id="start-time" formControlName="startTime">
                     <label for="end-time">End Time</label>
-                    <input type="time" name="end-time" id="end-time">
+                    <input type="time" name="end-time" id="end-time" formControlName="endTime">
                     <label for="classroom">Classroom</label>
-                    <input type="text" name="classroom" id="classroom">
-                    <label for="schedule-id">Schedule ID</label>
-                    <input type="text" name="schedule-id" id="schedule-id">
+                    <input type="text" name="classroom" id="classroom" formControlName="room">
 
-                    <button type="button" class="staff-button" id="course-submit">Submit</button>
+                    <button type="button" class="staff-button" id="course-submit"
+                        (click)="saveCourseSchedule()">Submit</button>
                     <button type="button" class="staff-button" id="user-consult" (click)="option = '0'">cancel</button>
                 </form>
             </div>
-            <button type="button" class="staff-button" id="user-consult" (click)="option = '0'">cancel</button>
             }@else if (option === '2') {
-            <form action="" class="manage-form" id="userForm" [formGroup]="assignmentForm2">
-                <label for="user-id">Course ID</label>
-                <input type="text" name="Course-id" id="assignment-id" formControlName="asId">
+            <form action="" class="manage-form" id="userForm" [formGroup]="courseScheduleForm2">
+                <label for="user-id">Name Course</label>
+                <input type="text" name="Course-id" id="assignment-id" formControlName="courseId" title=".">
                 <button type="button" class="staff-button" id="user-submit"
-                    (click)="consultAssignment()">Submit</button>
+                    (click)="consultCourseSchedule()">Submit</button>
 
                 <button type="button" class="staff-button" id="user-consult" (click)="option = '0'">cancel</button>
             </form>
             }@else if (option === '3') {
-            <div class="data-display">
-                <h4>User</h4>
-                <p><strong>Asid:</strong> {{ assignmentFound.asId }}</p>
-                <p><strong>Name:</strong> {{ assignmentFound.name }}</p>
-                <p><strong>Semester:</strong> {{assignmentFound.semester }}</p>
-                <button type="button" class="staff-button" id="user-consult" (click)="option = '0'">cancel</button>
-                <button type="button" class="staff-button" id="user-submit" (click)="deleteAssignment()">delete</button>
-            </div>
+            <table class="student-table">
+                <thead>
+                    <tr>
+                        <th>Course Name</th>
+                        <th>Semester</th>
+                        <th>Teacher</th>
+                        <th>Day</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Room</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (item of filteredCoureSchedules; track item.courseId; let i = $index) {
+                    <tr>
+                        <td rowspan="3">{{item.Assignment.name}}</td>
+                        <td rowspan="3">{{item.Assignment.semester}}</td>
+                        <td rowspan="3">{{item.Teacher.Person.firstName + " " + item.Teacher.Person.lastName1 + " " +
+                            item.Teacher.Person.lastName2}}</td>
+                        <td>{{item.CourseSchedules[0].day}}</td>
+                        <td>{{item.CourseSchedules[0].startTime}}</td>
+                        <td>{{item.CourseSchedules[0].endTime}}</td>
+                        <td>{{item.CourseSchedules[0].room}}</td>
+                    </tr>
+                    @if (item.CourseSchedules[1]) {
+                    <tr>
+                        <td>{{item.CourseSchedules[1].day}}</td>
+                        <td>{{item.CourseSchedules[1].startTime}}</td>
+                        <td>{{item.CourseSchedules[1].endTime}}</td>
+                        <td>{{item.CourseSchedules[1].room}}</td>
+                    </tr>
+                    }
+                    @if (item.CourseSchedules[2]) {
+                    <tr>
+                        <td>{{item.CourseSchedules[2].day}}</td>
+                        <td>{{item.CourseSchedules[2].startTime}}</td>
+                        <td>{{item.CourseSchedules[2].endTime}}</td>
+                        <td>{{item.CourseSchedules[2].room}}</td>
+                    </tr>
+                    }
+
+                    }
+                </tbody>
+            </table>
+            <button type="button" class="staff-button" id="user-consult" (click)="option = '0'">cancel</button>
             }
 
         </section>
@@ -114,7 +147,7 @@
                 <label for="subject-name">Subject Name</label>
                 <input type="text" name="subject-name" id="subject-name" formControlName="name">
                 <label for="subject-name">Semester</label>
-                <input type="text" name="semester-name" id="semester-name" formControlName="semester">
+                <input type="text" name="semester-name" id="semester-name" formControlName="semester" title=".">
                 <button type="button" class="staff-button" id="subject-submit"
                     (click)="saveAssignment()">Submit</button>
                 <button type="button" class="staff-button" id="user-consult" (click)="option = '0'">cancel</button>
@@ -122,7 +155,7 @@
             }@else if (option === '2') {
             <form action="" class="manage-form" id="userForm" [formGroup]="assignmentForm2">
                 <label for="user-id">ID</label>
-                <input type="text" name="asignment-id" id="assignment-id" formControlName="asId">
+                <input type="text" name="asignment-id" id="assignment-id" formControlName="asId" title=".">
                 <button type="button" class="staff-button" id="user-submit"
                     (click)="consultAssignment()">Submit</button>
 
@@ -196,6 +229,8 @@
         </section>
         <section class="chart" id="chart-5">
             <h3>Close Semester</h3>
+            <button type="button" class="staff-button" id="user-consult"
+                (click)="setAllEnrollsInactive()">Close</button>
 
         </section>
     </main>
@@ -211,14 +246,20 @@
             <h3>About Us</h3>
             <a href="../views/home/home.html">Home</a>
             <a href="../../views/home/home.html#mission">Mission</a>
-            <a href="../../views/home/home.html#vision">Vision</a>d
+            <a href="../../views/home/home.html#vision">Vision</a>
         </div>
         <div class="social">
             <h3>Our Social Networks</h3>
             <div class="icons">
-                <i class='bx bxl-facebook'></i>
-                <i class='bx bxl-youtube'></i>
-                <i class='bx bxl-instagram-alt'></i>
+                <a href="https://www.facebook.com/politecnicojic">
+                    <i class='bx bxl-facebook'></i>
+                </a>
+                <a href="https://www.youtube.com/@politecnicojic1964">
+                    <i class='bx bxl-youtube'></i>
+                </a>
+                <a href="https://www.instagram.com/politecnicojic/">
+                    <i class='bx bxl-instagram-alt'></i>
+                </a>
             </div>
         </div>
     </footer>

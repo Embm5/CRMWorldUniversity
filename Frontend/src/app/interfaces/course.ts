@@ -6,4 +6,10 @@ export interface Course {
     asId: number;
     teacher: Teacher;
     assignment: Assignment;
+    scheduleData: {
+        day: string;
+        startTime: string;
+        endTime: string;
+        room: string;
+    }[];
 }

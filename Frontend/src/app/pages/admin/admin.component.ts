@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, FormsModule, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { Student } from '../../interfaces/student';
 import { Person } from '../../interfaces/person';
@@ -12,9 +12,11 @@ import { AssignmentService } from '../../services/assignment.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Teacher } from '../../interfaces/teacher';
 import { CourseScheduleService } from '../../services/courseSchedule.service';
-import { catchError, of, switchMap, tap } from 'rxjs';
+import { catchError, isEmpty, of, switchMap, tap } from 'rxjs';
 import Swal from 'sweetalert2';
 import { CourseSchedule } from '../../interfaces/courseSchedule';
+import { Course } from '../../interfaces/course';
+import { enrollCourseService } from '../../services/enrollCourse.service';
 
 
 @Component({
@@ -49,32 +51,52 @@ export class AdminComponent {
   })
 
   courseScheduleForm = new FormGroup({
-
     teacherId: new FormControl('', Validators.required),
     asId: new FormControl('', Validators.required),
 
+    monday: new FormControl(false),
+    tuesday: new FormControl(false),
+    wednesday: new FormControl(false),
+    thursday: new FormControl(false),
+    friday: new FormControl(false),
 
-    day1: new FormControl('', Validators.required),
-    startTime1: new FormControl('', Validators.required),
-    endTime1: new FormControl('', Validators.required),
-    room1: new FormControl('', Validators.required),
+    startTime: new FormControl('', Validators.required),
+    endTime: new FormControl('', Validators.required),
+    room: new FormControl('', Validators.required),
+  }, { validators: this.maxSelectedDaysValidator(3) });
 
 
-    day2: new FormControl(''),
-    startTime2: new FormControl(''),
-    endTime2: new FormControl(''),
-    room2: new FormControl('')
-  });
+  getDaysControls(formGroup: FormGroup): AbstractControl[] {
+    const controls = [
+      formGroup.get('monday'),
+      formGroup.get('tuesday'),
+      formGroup.get('wednesday'),
+      formGroup.get('thursday'),
+      formGroup.get('friday')
+    ];
 
-  scheduleConsultForm = new FormGroup({
+    return controls.filter(control => control !== null && control !== undefined) as AbstractControl[];
+  }
+
+  maxSelectedDaysValidator(max: number): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      const formGroup = control as FormGroup;
+      const selectedDays = this.getDaysControls(formGroup).filter(control => control.value).length;
+      return selectedDays <= max ? null : { maxSelected: true };
+    };
+  }
+
+  courseScheduleForm2 = new FormGroup({
     courseId: new FormControl('', Validators.required)
   });
+  courseScheduleFound: any = {};
 
   scheduleFound: any = {};
 
 
   constructor(private router: Router, private _studentServices: StudentService, private _staffService: StaffService,
-    private _teacherService: TeacherService, private _assignmentService: AssignmentService, private _scheduleService: CourseScheduleService) {
+    private _teacherService: TeacherService, private _assignmentService: AssignmentService, private _scheduleService: CourseScheduleService,
+    private _enrolCourseService: enrollCourseService) {
 
 
   }
@@ -275,7 +297,12 @@ export class AdminComponent {
               }
             );
           } else {
-            alert('Invalid form data');
+            Swal.fire({
+              title: 'Invalid form data',
+              icon: 'error',
+              showConfirmButton: false,
+              timer: 1500
+            })
           }
 
         }
@@ -283,16 +310,19 @@ export class AdminComponent {
 
   }
   saveAssignment() {
-    alert('enter to the assignment')
     if (this.assignmentForm.valid) {
-      alert('Creating Assignment...')
       const assignment: Assignment = {
         name: this.assignmentForm.value.name!,
         semester: this.assignmentForm.value.semester!
       }
       console.log(assignment)
       this._assignmentService.createAssignment(assignment).subscribe(data => {
-        alert('assignment created')
+        Swal.fire({
+          title: 'Assignment Created Successfully',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 1500
+        })
         this.assignmentForm.reset()
       })
 
@@ -302,9 +332,7 @@ export class AdminComponent {
 
   consultAssignment() {
     const asId = this.assignmentForm2.value.asId!;
-    alert('Assignment')
     if (this.assignmentForm2.valid) {
-      alert('Getting Assignment...')
       this._assignmentService.getAssignment(asId).subscribe({
         next: (data) => {
           this.assignmentFound = data
@@ -312,7 +340,12 @@ export class AdminComponent {
           console.log(this.assignmentFound)
         },
         error: (error: HttpErrorResponse) => {
-          alert('Assignment not found')
+          Swal.fire({
+            title: 'Assignment not found',
+            icon: 'error',
+            showConfirmButton: false,
+            timer: 1500
+          })
           this.assignmentFound = {}
         }
 
@@ -320,27 +353,186 @@ export class AdminComponent {
     }
   }
   deleteAssignment() {
-    const asId = this.assignmentForm2.value.asId!; // Obtener el ID de la asignación
+    const asId = this.assignmentForm2.value.asId!;
 
     if (this.assignmentForm2.valid) {
-      alert('Deleting Assignment...');
       this._assignmentService.deleteAssignment(asId).subscribe({
         next: (response) => {
-          alert('Assignment deleted successfully');
+          Swal.fire({
+            title: 'Assignment deleted successfully',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 1500
+          })
           this.assignmentFound = {};
           this.assignmentForm2.reset();
           this.option = '0';
         },
         error: (error: HttpErrorResponse) => {
 
-          console.error('Error deleting assignment:', error);
-          alert('Error deleting assignment. Assignment not found or already deleted.');
+          // console.error('Error deleting assignment:', error);
+          Swal.fire({
+            title: 'Error deleting assignment.',
+            icon: 'error',
+            text: 'Assignment not found or already deleted.',
+            showConfirmButton: false,
+            timer: 1500
+          })
         }
       });
     } else {
-      alert('Invalid form data');
+      Swal.fire({
+        title: 'Invalid form data',
+        icon: 'error',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
   }
+
+  saveCourseSchedule() {
+    if (this.courseScheduleForm.valid) {
+
+
+      const courseSchedule: CourseSchedule = {
+        courseData: {
+          teacherId: Number(this.courseScheduleForm.value.teacherId!),
+          asId: Number(this.courseScheduleForm.value.asId!)
+        },
+
+        scheduleData: this.getDays()
+
+
+      }
+      console.log(courseSchedule)
+      this._scheduleService.createCourseSchedule(courseSchedule).subscribe(data => {
+        Swal.fire({
+          title: 'Course Schedule created',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        this.courseScheduleForm.reset()
+      })
+
+
+    }
+  }
+  getDays() {
+    const scheduleData = []
+    if (this.courseScheduleForm.value.monday) {
+      scheduleData.push({
+        day: 'Monday',
+        startTime: this.courseScheduleForm.value.startTime!,
+        endTime: this.courseScheduleForm.value.endTime!,
+        room: this.courseScheduleForm.value.room!
+      })
+    }
+
+
+    if (this.courseScheduleForm.value.tuesday) {
+      scheduleData.push({
+        day: 'Tuesday',
+        startTime: this.courseScheduleForm.value.startTime!,
+        endTime: this.courseScheduleForm.value.endTime!,
+        room: this.courseScheduleForm.value.room!
+      })
+    }
+
+    if (this.courseScheduleForm.value.wednesday) {
+      scheduleData.push({
+        day: 'wednesday',
+        startTime: this.courseScheduleForm.value.startTime!,
+        endTime: this.courseScheduleForm.value.endTime!,
+        room: this.courseScheduleForm.value.room!
+      })
+    }
+
+    if (this.courseScheduleForm.value.thursday) {
+      scheduleData.push({
+        day: 'Thursday',
+        startTime: this.courseScheduleForm.value.startTime!,
+        endTime: this.courseScheduleForm.value.endTime!,
+        room: this.courseScheduleForm.value.room!
+      })
+    }
+
+    if (this.courseScheduleForm.value.friday) {
+      scheduleData.push({
+        day: 'Friday',
+        startTime: this.courseScheduleForm.value.startTime!,
+        endTime: this.courseScheduleForm.value.endTime!,
+        room: this.courseScheduleForm.value.room!
+      })
+    }
+    return scheduleData
+  }
+
+  coureSchedules: any = []
+  filteredCoureSchedules: any = []
+  consultCourseSchedule() {
+
+    if (this.courseScheduleForm2.valid) {
+
+      const courseId = this.courseScheduleForm2.value.courseId!
+      this._scheduleService.getAllCourseSchedules().subscribe({
+        next: (data) => {
+          this.coureSchedules = data;
+          this.filteredCoureSchedules = this.filterByAssignmentName(this.coureSchedules, courseId);
+          if (this.filteredCoureSchedules.length === 0) {
+            Swal.fire({
+              title: 'Course not found',
+              icon: 'error',
+              showConfirmButton: false,
+              timer: 1500
+            })
+          } else {
+            this.option = '3'
+            // console.log(this.filteredCoureSchedules)
+          }
+        }
+      });
+    }
+  }
+
+  filterByAssignmentName(coursesArray: any[], assignmentName: string): any[] {
+    const filteredCourses = coursesArray.filter(course => course.Assignment.name === assignmentName);
+    return filteredCourses.length > 0 ? filteredCourses : [];
+  }
+
+  setAllEnrollsInactive() {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, set all enrollments to INACTIVE!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this._enrolCourseService.setAllEnrollsInactive().subscribe({
+          next: () => {
+            Swal.fire(
+              'Success!',
+              'All enrollments have been set to INACTIVE!',
+              'success'
+            );
+          },
+          error: () => {
+
+            Swal.fire({
+              title: 'All students are inactive',
+              icon: 'error',
+              showConfirmButton: false,
+              timer: 1500
+            })
+          }
+        });
+      }
+    });
+  }
+
 
 
   reload() {
@@ -352,8 +544,5 @@ export class AdminComponent {
     localStorage.removeItem('pageReloaded');
     this.router.navigate(['']);
   }
-
-
-
 
 }

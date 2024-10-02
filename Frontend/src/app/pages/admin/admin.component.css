@@ -1,14 +1,13 @@
-
 .img-aside {
     width: 10em;
     height: 15em;
 }
 
-.sections{
+.sections {
     padding-top: 30px;
 }
 
-.sections section{
+.sections section {
     display: none;
     flex-direction: column;
     align-items: center;
@@ -62,8 +61,10 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 500px; /* Ajusta el ancho máximo del formulario */
-    margin: 0 auto; /* Centrar en la pantalla */
+    max-width: 500px;
+    /* Ajusta el ancho máximo del formulario */
+    margin: 0 auto;
+    /* Centrar en la pantalla */
     padding: 2rem;
     border: 2px solid #003366;
     border-radius: 10px;
@@ -75,7 +76,8 @@
 #userForm label {
     font-weight: bold;
     margin-bottom: 0.5rem;
-    color: #003366; /* Cambia el color del texto */
+    color: #003366;
+    /* Cambia el color del texto */
 }
 
 #userForm input {
@@ -85,7 +87,8 @@
     border-radius: 5px;
     width: 100%;
     box-sizing: border-box;
-    background-color: #fff; /* Fondo blanco */
+    background-color: #fff;
+    /* Fondo blanco */
     font-size: 1rem;
 }
 
@@ -139,4 +142,26 @@
     color: #003366;
     font-size: 1rem;
     font-weight: 500;
+}
+
+
+/* ------------- */
+
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.student-table th,
+.student-table td {
+    padding: 12px;
+    border: 1px solid #040101;
+}
+
+.student-table th {
+    background-color: #003366FF;
+    color: #ddd;
 }

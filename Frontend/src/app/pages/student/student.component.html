@@ -1,10 +1,10 @@
 <body class="grid-container">
     <header class="header">
-        <a  href="/" (click)="reload()">
+        <a href="/" (click)="reload()">
             <img src="../../img/Logo.png" alt="" class="logo">
         </a>
         <div class="flex-container">
-            <button class="button"(click)="logOut()">log out</button>
+            <button class="button" (click)="logOut()">log out</button>
             <img src="../../img/iconperson.png" alt="" class="icon-person">
         </div>
     </header>
@@ -17,16 +17,16 @@
     <nav class="nav">
         <section class="list">
             <p><b>
-                <a href="#chart-0" class="feature">Start</a>
-                |
-                <a href="#chart-1" class="feature">Class Material</a>
-                |
-                <a href="#chart-2" class="feature">Qualifications</a>
-                |
-                <a href="#chart-3" class="feature">Schedule</a>
-                |
-                <a href="#chart-4" class="feature">Enrollment</a> 
-            </b></p>
+                    <a href="#chart-0" class="feature">Start</a>
+                    |
+                    <a href="#chart-1" class="feature">Class Material</a>
+                    |
+                    <a href="#chart-2" class="feature">Qualifications</a>
+                    |
+                    <a href="#chart-3" class="feature">Schedule</a>
+                    |
+                    <a href="#chart-4" class="feature" (click)="getCourses()">Enrollment</a>
+                </b></p>
         </section>
     </nav>
 
@@ -147,24 +147,119 @@
                             <td>30</td>
                             <td>Algorithms</td>
                             <td>Room 303</td>
-                    </tr>
+                        </tr>
                     </tbody>
                 </table>
             </div>
         </section>
         <section class="chart" id="chart-4">
+            @if (option !== '1') {
             <h3>Enrollment</h3>
-            <div class="div-chart">
-                <form action="" class="manage-form">
-                    <label for="course-id">Course ID</label>
-                    <input type="number" name="course-id" id="course-id" required>
-                    
-                    <label for="teacher-id">Teacher ID</label>
-                    <input type="number" name="teacher-id" id="teacher-id" required>
-                    
-                    <button onclick="alert('The registration has been created successfully')" type="submit" class="student-button">Submit</button>
-                </form>
-            </div>
+            <table class="student-table">
+                <thead>
+                    <tr>
+                        <th>Course Name</th>
+                        <th>Semester</th>
+                        <th>Teacher</th>
+                        <th>Day</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Room</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (item of courses; track item.courseId; let i = $index) {
+                    <tr>
+                        <td [rowSpan]="item.CourseSchedules.length">{{item.Assignment.name}}</td>
+                        <td [rowSpan]="item.CourseSchedules.length">{{item.Assignment.semester}}</td>
+                        <td [rowSpan]="item.CourseSchedules.length">{{item.Teacher.Person.firstName + " " +
+                            item.Teacher.Person.lastName1 + " " +
+                            item.Teacher.Person.lastName2}}</td>
+                        <td>{{item.CourseSchedules[0].day}}</td>
+                        <td>{{item.CourseSchedules[0].startTime}}</td>
+                        <td>{{item.CourseSchedules[0].endTime}}</td>
+                        <td>{{item.CourseSchedules[0].room}}</td>
+                        <td [rowSpan]="item.CourseSchedules.length">
+                            <button type="button" class="student-button" (click)="addCourse(item.courseId)">add
+                                course</button>
+                        </td>
+
+                    </tr>
+                    @if (item.CourseSchedules[1]) {
+                    <tr>
+                        <td>{{item.CourseSchedules[1].day}}</td>
+                        <td>{{item.CourseSchedules[1].startTime}}</td>
+                        <td>{{item.CourseSchedules[1].endTime}}</td>
+                        <td>{{item.CourseSchedules[1].room}}</td>
+                    </tr>
+                    }
+                    @if (item.CourseSchedules[2]) {
+                    <tr>
+                        <td>{{item.CourseSchedules[2].day}}</td>
+                        <td>{{item.CourseSchedules[2].startTime}}</td>
+                        <td>{{item.CourseSchedules[2].endTime}}</td>
+                        <td>{{item.CourseSchedules[2].room}}</td>
+                    </tr>
+                    }
+
+                    }
+                </tbody>
+            </table>
+            <button type="button" class="student-button" (click)="summary()">Summary</button>
+            }
+            @if (option === '1') {
+            <h3>Enrollment Summary</h3>
+            <table class="student-table">
+                <thead>
+                    <tr>
+                        <th>Course Name</th>
+                        <th>Semester</th>
+                        <th>Teacher</th>
+                        <th>Day</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Room</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (item of selectedCourses; track item.courseId; let i = $index) {
+                    <tr>
+                        <td [rowSpan]="item.CourseSchedules.length">{{item.Assignment.name}}</td>
+                        <td [rowSpan]="item.CourseSchedules.length">{{item.Assignment.semester}}</td>
+                        <td [rowSpan]="item.CourseSchedules.length">{{item.Teacher.Person.firstName + " " +
+                            item.Teacher.Person.lastName1 + " " +
+                            item.Teacher.Person.lastName2}}</td>
+                        <td>{{item.CourseSchedules[0].day}}</td>
+                        <td>{{item.CourseSchedules[0].startTime}}</td>
+                        <td>{{item.CourseSchedules[0].endTime}}</td>
+                        <td>{{item.CourseSchedules[0].room}}</td>
+
+                    </tr>
+                    @if (item.CourseSchedules[1]) {
+                    <tr>
+                        <td>{{item.CourseSchedules[1].day}}</td>
+                        <td>{{item.CourseSchedules[1].startTime}}</td>
+                        <td>{{item.CourseSchedules[1].endTime}}</td>
+                        <td>{{item.CourseSchedules[1].room}}</td>
+                    </tr>
+                    }
+                    @if (item.CourseSchedules[2]) {
+                    <tr>
+                        <td>{{item.CourseSchedules[2].day}}</td>
+                        <td>{{item.CourseSchedules[2].startTime}}</td>
+                        <td>{{item.CourseSchedules[2].endTime}}</td>
+                        <td>{{item.CourseSchedules[2].room}}</td>
+                    </tr>
+                    }
+
+                    }
+                </tbody>
+            </table>
+
+            <button type="button" class="student-button" (click)="saveEnroll()">Enroll</button>
+            <button type="button" class="student-button" (click)="option='0'">Return</button>
+            }
         </section>
     </main>
 
@@ -188,10 +283,10 @@
                     <i class='bx bxl-facebook'></i>
                 </a>
                 <a href="https://www.youtube.com/@politecnicojic1964">
-                    <i class='bx bxl-youtube' ></i>
+                    <i class='bx bxl-youtube'></i>
                 </a>
                 <a href="https://www.instagram.com/politecnicojic/">
-                    <i class='bx bxl-instagram-alt' ></i>
+                    <i class='bx bxl-instagram-alt'></i>
                 </a>
             </div>
         </div>
