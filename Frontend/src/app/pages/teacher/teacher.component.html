@@ -114,9 +114,10 @@
                 <tbody>
                     @for (item of schedule; track item.courseId; let i = $index) {
                     <tr>
-                        <td rowspan="3">{{item.Assignment.name}}</td>
-                        <td rowspan="3">{{item.Assignment.semester}}</td>
-                        <td rowspan="3">{{item.Teacher.Person.firstName + " " + item.Teacher.Person.lastName1 + " " +
+                        <td [rowSpan]="item.CourseSchedules.length">{{item.Assignment.name}}</td>
+                        <td [rowSpan]="item.CourseSchedules.length">{{item.Assignment.semester}}</td>
+                        <td [rowSpan]="item.CourseSchedules.length">{{item.Teacher.Person.firstName + " " +
+                            item.Teacher.Person.lastName1 + " " +
                             item.Teacher.Person.lastName2}}</td>
                         <td>{{item.CourseSchedules[0].day}}</td>
                         <td>{{item.CourseSchedules[0].startTime}}</td>

@@ -74,7 +74,7 @@ First connect with postgres user or another user with superuser privileges, then
 
 ![Create User](views/img/step1.png)
 
-the user name is "CRMWU", in Definition put the password "1234" and configure the privileges.
+the user name is "CRMWU", in Definition put the password "1234" and configure the privileges.git
 
 ![Admin User Name](views/img/step2.png)
 ![Admin User Password](views/img/step3.png)
