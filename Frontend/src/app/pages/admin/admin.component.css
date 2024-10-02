@@ -56,15 +56,15 @@
     color: white;
 }
 
-/* Estilos generales del formulario */
+
 #userForm {
     display: flex;
     flex-direction: column;
     width: 100%;
     max-width: 500px;
-    /* Ajusta el ancho máximo del formulario */
+    
     margin: 0 auto;
-    /* Centrar en la pantalla */
+
     padding: 2rem;
     border: 2px solid #003366;
     border-radius: 10px;
@@ -72,12 +72,12 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo de los campos del formulario */
+
 #userForm label {
     font-weight: bold;
     margin-bottom: 0.5rem;
     color: #003366;
-    /* Cambia el color del texto */
+ 
 }
 
 #userForm input {
@@ -88,11 +88,11 @@
     width: 100%;
     box-sizing: border-box;
     background-color: #fff;
-    /* Fondo blanco */
+
     font-size: 1rem;
 }
 
-/* Estilo de los botones */
+
 #userForm button {
     background-color: #003366;
     color: white;
@@ -109,7 +109,7 @@
     background-color: #002244;
 }
 
-/* Estilo de mensaje o campos con datos obtenidos */
+
 .data-display {
     display: flex;
     flex-direction: column;
