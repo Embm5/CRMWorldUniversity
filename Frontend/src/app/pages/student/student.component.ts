@@ -9,21 +9,22 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './student.component.css'
 })
 export class StudentComponent {
-  constructor(private router: Router){
-    
+  option: string = '0'
+  constructor(private router: Router) {
+
   }
   ngOnInit() {
-    if(!localStorage.getItem('pageReloaded')){
+    if (!localStorage.getItem('pageReloaded')) {
       localStorage.setItem('pageReloaded', 'true');
       location.reload();
     }
   }
-  reload(){
+  reload() {
     localStorage.removeItem('pageReloaded');
   }
-  logOut(){
+  logOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('rol');
-    this.router.navigate(['']);  
-  } 
+    this.router.navigate(['']);
+  }
 }

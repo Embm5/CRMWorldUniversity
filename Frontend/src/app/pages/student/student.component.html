@@ -1,10 +1,10 @@
 <body class="grid-container">
     <header class="header">
-        <a  href="/" (click)="reload()">
+        <a href="/" (click)="reload()">
             <img src="../../img/Logo.png" alt="" class="logo">
         </a>
         <div class="flex-container">
-            <button class="button"(click)="logOut()">log out</button>
+            <button class="button" (click)="logOut()">log out</button>
             <img src="../../img/iconperson.png" alt="" class="icon-person">
         </div>
     </header>
@@ -17,16 +17,16 @@
     <nav class="nav">
         <section class="list">
             <p><b>
-                <a href="#chart-0" class="feature">Start</a>
-                |
-                <a href="#chart-1" class="feature">Class Material</a>
-                |
-                <a href="#chart-2" class="feature">Qualifications</a>
-                |
-                <a href="#chart-3" class="feature">Schedule</a>
-                |
-                <a href="#chart-4" class="feature">Enrollment</a> 
-            </b></p>
+                    <a href="#chart-0" class="feature">Start</a>
+                    |
+                    <a href="#chart-1" class="feature">Class Material</a>
+                    |
+                    <a href="#chart-2" class="feature">Qualifications</a>
+                    |
+                    <a href="#chart-3" class="feature">Schedule</a>
+                    |
+                    <a href="#chart-4" class="feature">Enrollment</a>
+                </b></p>
         </section>
     </nav>
 
@@ -147,22 +147,29 @@
                             <td>30</td>
                             <td>Algorithms</td>
                             <td>Room 303</td>
-                    </tr>
+                        </tr>
                     </tbody>
                 </table>
             </div>
         </section>
         <section class="chart" id="chart-4">
             <h3>Enrollment</h3>
+            @if(option !=='1' && option !=='2' && option !=='3'){
+            <button type="button" class="staff-button" id="user-consult" (click)="option ='1' ">create</button>
+            <button type="button" class="staff-button" id="user-consult" (click)="option = '2'">consult</button>
+            }
+
+
             <div class="div-chart">
                 <form action="" class="manage-form">
                     <label for="course-id">Course ID</label>
                     <input type="number" name="course-id" id="course-id" required>
-                    
+
                     <label for="teacher-id">Teacher ID</label>
                     <input type="number" name="teacher-id" id="teacher-id" required>
-                    
-                    <button onclick="alert('The registration has been created successfully')" type="submit" class="student-button">Submit</button>
+
+                    <button onclick="alert('The registration has been created successfully')" type="submit"
+                        class="student-button">Submit</button>
                 </form>
             </div>
         </section>
@@ -188,10 +195,10 @@
                     <i class='bx bxl-facebook'></i>
                 </a>
                 <a href="https://www.youtube.com/@politecnicojic1964">
-                    <i class='bx bxl-youtube' ></i>
+                    <i class='bx bxl-youtube'></i>
                 </a>
                 <a href="https://www.instagram.com/politecnicojic/">
-                    <i class='bx bxl-instagram-alt' ></i>
+                    <i class='bx bxl-instagram-alt'></i>
                 </a>
             </div>
         </div>
