@@ -11,7 +11,6 @@
 - [Functionalities](#functionalities)
   - [Funciones básicas](#funciones-básicas)
   - [Configuración avanzada](#configuración-avanzada)
-- [Main features](#main-features)
 - [Instructions for Use](#instructions-for-use)
   - [Requirements](#requirements)
   - [Installing](#installing)
@@ -24,7 +23,7 @@
 - [Conctact](#conctact)
 
 
-
+---
 
 
 ## Dates
@@ -115,6 +114,13 @@ This action only needs to be performed once!
 
 if you have already performed the previous steps, you can initialize the project by running `npm start` located in the project's main folder. then you can view the project with any browser by visiting
 http://localhost:4200/
+
+# Construction details
+The system follows a three-tier architecture (frontend, backend, database).
+
+- Frontend: A web application that directly interacts with users (students, admin, staff and teacher).
+- Backend: A REST API that processes requests and manages business logic.
+- Database: A relational database to store information about students, admin, staff and teacher.
 
 # Contributors
 
