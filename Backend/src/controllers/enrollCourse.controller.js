@@ -156,24 +156,19 @@ export class EnrollCourseController {
 
   setAllEnrollsInactive = async (req, res) => {
     try {
-      const activeEnrolls = await Enroll.findAll({
-        where: { status: 'ACTIVE' }
-      })
+      const [numberOfAffectedRows] = await Enroll.update(
+        { status: 'INACTIVE' },
+        { where: { status: 'ACTIVE' } }
+      )
 
-      if (activeEnrolls.length === 0) {
+      if (numberOfAffectedRows === 0) {
         return res.status(404).json({ message: 'No active enrollments found' })
       }
 
-      await Promise.all(
-        activeEnrolls.map(async (enroll) => {
-          enroll.status = 'INACTIVE'
-          await enroll.save()
-        })
-      )
-
       res.status(200).json({ message: 'All active enrollments have been set to INACTIVE' })
     } catch (error) {
-      return res.status(500).json({ message: error.message })
+      console.error('Error setting enrollments inactive:', error)
+      return res.status(500).json({ message: 'Failed to set enrollments to INACTIVE', error: error.message })
     }
   }
 }

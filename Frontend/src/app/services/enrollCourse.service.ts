@@ -11,7 +11,7 @@ export class enrollCourseService {
   private myApiUrl: string
   constructor(private http: HttpClient) {
     this.myAppUrl = 'http://localhost:3000/'
-    this.myApiUrl = 'api/Staff'
+    this.myApiUrl = 'api/enrollCourses'
   }
   getAllEnrollCourses(): Observable<EnrollCourse[]> {
     return this.http.get<EnrollCourse[]>(this.myApiUrl);

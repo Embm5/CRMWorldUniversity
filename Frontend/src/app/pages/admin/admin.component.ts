@@ -464,7 +464,6 @@ export class AdminComponent {
       });
     }
   }
-
   setAllEnrollsInactive() {
     Swal.fire({
       title: 'Are you sure?',
@@ -473,21 +472,31 @@ export class AdminComponent {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
-    })
-      .then((result) => {
+      confirmButtonText: 'Yes, set all enrollments to INACTIVE!'
+    }).then((result) => {
+      if (result.isConfirmed) {
         this._enrolCourseService.setAllEnrollsInactive().subscribe({
-          next: (response) => {
-            alert('All enrollments have been set to INACTIVE'); // Muestra mensaje de éxito
+          next: () => {
+            Swal.fire(
+              'Success!',
+              'All enrollments have been set to INACTIVE!',
+              'success'
+            );
           },
-          error: (err) => {
-            alert('Failed to set enrollments to INACTIVE'); // Muestra mensaje de error
+          error: () => {
+
+            Swal.fire({
+              title: 'All students are inactive',
+              icon: 'error',
+              showConfirmButton: false,
+              timer: 1500
+            })
           }
         });
-
-      })
-
+      }
+    });
   }
+
 
 
   reload() {
@@ -499,4 +508,5 @@ export class AdminComponent {
     localStorage.removeItem('pageReloaded');
     this.router.navigate(['']);
   }
+
 }

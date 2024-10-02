@@ -1,13 +1,13 @@
 # CRMWORLUNIVERSITY
 
 ## Description
-
+ The Academic CRM is a web-based platform designed to enhance the relationship management between the university and its students, faculty, and administration. It streamlines academic processes, improving communication and tracking throughout students' educational journeys.
 
 ## Dates
 
-- Analysis: , 2024
-- Design: , 2024
-- Construction: , 2024
+- Analysis:august 22, 2024
+- Design:august 24, 2024
+- Construction: september 1, 2024
 
 ## Purpose / Focus
 
@@ -21,7 +21,7 @@ This project was developed in an academic context as a project for the software 
 - create staff
 - create assignment
 - create course 
-- enrollment 
+- view schedule teacher 
 
 
 # Instructions for Use
@@ -52,7 +52,7 @@ First connect with postgres user or another user with superuser privileges, then
 
 ![Create User](https://cdn.discordapp.com/attachments/1037567655424569344/1226744128545624094/image.png?ex=6625e180&is=66136c80&hm=e749501908eb2d94d4422fa7ec301c1c89549eabb8fc56a3f93419f3fcefc7b9&)
 
-the user name is "Admin", in Definition put the password "1234" and configure the privileges.
+the user name is "CRMWU", in Definition put the password "1234" and configure the privileges.
 
 ![Admin User](https://cdn.discordapp.com/attachments/1037567655424569344/1227017339954921513/image.png?ex=6626dff2&is=66146af2&hm=4fd72eb7ccb04d363fcde06d8d161b3f66b30ab0603f5df309228b86ebef7d8c&)
 
@@ -94,12 +94,16 @@ http://localhost:4200/
 
 # Contributors
 
-- 
-- 
-- 
+- Emmanuel Bolivar Marin
+- Maria Jose Arcila Cano
+- David Correa Posada
+- Manuela Diaz Arboleda 
 
 # Contact
 
 If required. You can contact us by email at:
 
-- [emmanuel_boolivar82212@elpoli.edu.co](mailto:emmanuel_bolivar82212@elpoli.edu.co).
+- [emmanuel_bolivar82212@elpoli.edu.co](mailto:emmanuel_bolivar82212@elpoli.edu.co).
+- [david_correa82212@elpoli.edu.co](mailto:david_correa82212@elpoli.edu.co)
+- [manuela_diaz82212@elpoli.edu.co](mailto:manuela_diaz82212@elpoli.edu.co)
+- [maria_arcila82221@elpoli.edu.co](mailto:maria_arcila82221@elpoli.edu.co)
