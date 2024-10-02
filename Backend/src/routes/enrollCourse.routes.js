@@ -9,3 +9,4 @@ enrollCourseRouters.post('/api/enrollCourses', enrollCourseController.createEnro
 enrollCourseRouters.get('/api/enrollCourses/:studentId', enrollCourseController.getEnrolledCoursesWithSchedule)
 enrollCourseRouters.patch('/api/enrollCourses/:studentId/:courseId', enrollCourseController.updateEnrollCourse)
 enrollCourseRouters.delete('/api/enrollCourses/:studentId/:courseId', enrollCourseController.deleteEnrollCourse)
+enrollCourseRouters.put('/api/enrollCourses/inactivateAll', enrollCourseController.setAllEnrollsInactive)

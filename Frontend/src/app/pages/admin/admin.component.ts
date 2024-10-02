@@ -16,6 +16,7 @@ import { catchError, of, switchMap, tap } from 'rxjs';
 import Swal from 'sweetalert2';
 import { CourseSchedule } from '../../interfaces/courseSchedule';
 import { Course } from '../../interfaces/course';
+import { enrollCourseService } from '../../services/enrollCourse.service';
 
 
 @Component({
@@ -94,7 +95,8 @@ export class AdminComponent {
 
 
   constructor(private router: Router, private _studentServices: StudentService, private _staffService: StaffService,
-    private _teacherService: TeacherService, private _assignmentService: AssignmentService, private _scheduleService: CourseScheduleService) {
+    private _teacherService: TeacherService, private _assignmentService: AssignmentService, private _scheduleService: CourseScheduleService,
+    private _enrolCourseService: enrollCourseService) {
 
 
   }
@@ -463,6 +465,29 @@ export class AdminComponent {
     }
   }
 
+  setAllEnrollsInactive() {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    })
+      .then((result) => {
+        this._enrolCourseService.setAllEnrollsInactive().subscribe({
+          next: (response) => {
+            alert('All enrollments have been set to INACTIVE'); // Muestra mensaje de éxito
+          },
+          error: (err) => {
+            alert('Failed to set enrollments to INACTIVE'); // Muestra mensaje de error
+          }
+        });
+
+      })
+
+  }
 
 
   reload() {
@@ -474,9 +499,4 @@ export class AdminComponent {
     localStorage.removeItem('pageReloaded');
     this.router.navigate(['']);
   }
-
-
-
-
-
 }

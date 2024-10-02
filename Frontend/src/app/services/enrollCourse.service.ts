@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class StaffService {
+export class enrollCourseService {
   private myAppUrl: string
   private myApiUrl: string
   constructor(private http: HttpClient) {
@@ -38,6 +38,11 @@ export class StaffService {
     const url = `${this.myApiUrl}/${studentId}/${courseId}`;
     return this.http.delete<void>(url);
   }
+  setAllEnrollsInactive(): Observable<any> {
+    const url = `${this.myAppUrl}${this.myApiUrl}/inactivateAll`;
+    return this.http.put<any>(url, {});
+  }
+
 
 
 
