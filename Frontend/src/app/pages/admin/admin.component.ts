@@ -12,7 +12,7 @@ import { AssignmentService } from '../../services/assignment.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Teacher } from '../../interfaces/teacher';
 import { CourseScheduleService } from '../../services/courseSchedule.service';
-import { catchError, of, switchMap, tap } from 'rxjs';
+import { catchError, isEmpty, of, switchMap, tap } from 'rxjs';
 import Swal from 'sweetalert2';
 import { CourseSchedule } from '../../interfaces/courseSchedule';
 import { Course } from '../../interfaces/course';
@@ -297,7 +297,12 @@ export class AdminComponent {
               }
             );
           } else {
-            alert('Invalid form data');
+            Swal.fire({
+              title: 'Invalid form data',
+              icon: 'error',
+              showConfirmButton: false,
+              timer: 1500
+            })
           }
 
         }
@@ -348,25 +353,40 @@ export class AdminComponent {
     }
   }
   deleteAssignment() {
-    const asId = this.assignmentForm2.value.asId!; // Obtener el ID de la asignación
+    const asId = this.assignmentForm2.value.asId!;
 
     if (this.assignmentForm2.valid) {
-      alert('Deleting Assignment...');
       this._assignmentService.deleteAssignment(asId).subscribe({
         next: (response) => {
-          alert('Assignment deleted successfully');
+          Swal.fire({
+            title: 'Assignment deleted successfully',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 1500
+          })
           this.assignmentFound = {};
           this.assignmentForm2.reset();
           this.option = '0';
         },
         error: (error: HttpErrorResponse) => {
 
-          console.error('Error deleting assignment:', error);
-          alert('Error deleting assignment. Assignment not found or already deleted.');
+          // console.error('Error deleting assignment:', error);
+          Swal.fire({
+            title: 'Error deleting assignment.',
+            icon: 'error',
+            text: 'Assignment not found or already deleted.',
+            showConfirmButton: false,
+            timer: 1500
+          })
         }
       });
     } else {
-      alert('Invalid form data');
+      Swal.fire({
+        title: 'Invalid form data',
+        icon: 'error',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
   }
 
@@ -386,7 +406,12 @@ export class AdminComponent {
       }
       console.log(courseSchedule)
       this._scheduleService.createCourseSchedule(courseSchedule).subscribe(data => {
-        alert('Course Schedule created')
+        Swal.fire({
+          title: 'Course Schedule created',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 1500
+        })
         this.courseScheduleForm.reset()
       })
 
@@ -442,28 +467,42 @@ export class AdminComponent {
     }
     return scheduleData
   }
+
+  coureSchedules: any = []
+  filteredCoureSchedules: any = []
   consultCourseSchedule() {
-    const courseId = Number(this.courseScheduleForm2.value.courseId)
 
     if (this.courseScheduleForm2.valid) {
-      this._scheduleService.getCourseSchedule(courseId).subscribe({
+
+      const courseId = this.courseScheduleForm2.value.courseId!
+      this._scheduleService.getAllCourseSchedules().subscribe({
         next: (data) => {
-          this.courseScheduleFound = data;
-          this.option = '3';
-          console.log(this.courseScheduleFound);
-        },
-        error: (error: HttpErrorResponse) => {
-          Swal.fire({
-            title: 'Schedule not found',
-            icon: 'error',
-            showConfirmButton: false,
-            timer: 1500
-          });
-          this.courseScheduleFound = {};
+          this.coureSchedules = data;
+          this.filteredCoureSchedules = this.filterByAssignmentName(this.coureSchedules, courseId);
+          if (this.filteredCoureSchedules.length === 0) {
+            Swal.fire({
+              title: 'Course not found',
+              icon: 'error',
+              showConfirmButton: false,
+              timer: 1500
+            })
+          } else {
+            this.option = '3'
+            // console.log(this.filteredCoureSchedules)
+          }
         }
       });
     }
   }
+<<<<<<< HEAD
+=======
+
+  filterByAssignmentName(coursesArray: any[], assignmentName: string): any[] {
+    const filteredCourses = coursesArray.filter(course => course.Assignment.name === assignmentName);
+    return filteredCourses.length > 0 ? filteredCourses : [];
+  }
+
+>>>>>>> 86ebac6e7120c9fe67f8d604bdc0d7719ed2b592
   setAllEnrollsInactive() {
     Swal.fire({
       title: 'Are you sure?',

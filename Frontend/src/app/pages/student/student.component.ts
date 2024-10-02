@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { jwtDecode, JwtPayload } from "jwt-decode";
+import { enrollCourseService } from '../../services/enrollCourse.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { CourseScheduleService } from '../../services/courseSchedule.service';
+
 
 @Component({
   selector: 'app-student',
@@ -10,7 +15,9 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class StudentComponent {
   option: string = '0'
-  constructor(private router: Router) {
+  schedule: any = []
+  msg = {}
+  constructor(private router: Router, private _enrollCourse: enrollCourseService, private _courseSchedule: CourseScheduleService) {
 
   }
   ngOnInit() {
@@ -27,4 +34,5 @@ export class StudentComponent {
     localStorage.removeItem('rol');
     this.router.navigate(['']);
   }
+
 }
