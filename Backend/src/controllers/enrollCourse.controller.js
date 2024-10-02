@@ -37,14 +37,17 @@ export class EnrollCourseController {
       const { studentId, courses } = req.body
 
       const studentEnroll = await Enroll.findOne({ where: { studentId, status: 'ACTIVE' } })
-      if (!studentEnroll) {
-        return res.status(404).json({ message: 'Estudiante no encontrado o no activo' })
+      if (studentEnroll) {
+        return res.status(404).json({ message: 'Studen has already enroll' })
       }
+      const newEnroll = await Enroll.create({
+        studentId
+      })
 
       const enrollments = await Promise.all(
         courses.map(async (courseId) => {
           return await EnrollCourse.create({
-            studentId,
+            enrollID: newEnroll.enrollID,
             courseId,
             approved: false
           })

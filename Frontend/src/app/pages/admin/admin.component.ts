@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, FormsModule, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { Student } from '../../interfaces/student';
 import { Person } from '../../interfaces/person';
@@ -15,6 +15,7 @@ import { CourseScheduleService } from '../../services/courseSchedule.service';
 import { catchError, of, switchMap, tap } from 'rxjs';
 import Swal from 'sweetalert2';
 import { CourseSchedule } from '../../interfaces/courseSchedule';
+import { Course } from '../../interfaces/course';
 
 
 @Component({
@@ -49,22 +50,39 @@ export class AdminComponent {
   })
 
   courseScheduleForm = new FormGroup({
-
     teacherId: new FormControl('', Validators.required),
     asId: new FormControl('', Validators.required),
 
+    monday: new FormControl(false),
+    tuesday: new FormControl(false),
+    wednesday: new FormControl(false),
+    thursday: new FormControl(false),
+    friday: new FormControl(false),
 
-    day1: new FormControl('', Validators.required),
-    startTime1: new FormControl('', Validators.required),
-    endTime1: new FormControl('', Validators.required),
-    room1: new FormControl('', Validators.required),
+    startTime: new FormControl('', Validators.required),
+    endTime: new FormControl('', Validators.required),
+    room: new FormControl('', Validators.required),
+  }, { validators: this.maxSelectedDaysValidator(3) });
 
+  getDaysControls(formGroup: FormGroup): AbstractControl[] {
+    const controls = [
+      formGroup.get('monday'),
+      formGroup.get('tuesday'),
+      formGroup.get('wednesday'),
+      formGroup.get('thursday'),
+      formGroup.get('friday')
+    ];
 
-    day2: new FormControl(''),
-    startTime2: new FormControl(''),
-    endTime2: new FormControl(''),
-    room2: new FormControl('')
-  });
+    return controls.filter(control => control !== null && control !== undefined) as AbstractControl[];
+  }
+
+  maxSelectedDaysValidator(max: number): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      const formGroup = control as FormGroup;
+      const selectedDays = this.getDaysControls(formGroup).filter(control => control.value).length;
+      return selectedDays <= max ? null : { maxSelected: true };
+    };
+  }
 
   scheduleConsultForm = new FormGroup({
     courseId: new FormControl('', Validators.required)
@@ -348,6 +366,79 @@ export class AdminComponent {
     }
   }
 
+  saveCourseSchedule() {
+    if (this.courseScheduleForm.valid) {
+
+
+      const courseSchedule: CourseSchedule = {
+        courseData: {
+          teacherId: Number(this.courseScheduleForm.value.teacherId!),
+          asId: Number(this.courseScheduleForm.value.asId!)
+        },
+
+        scheduleData: this.getDays()
+
+
+      }
+      console.log(courseSchedule)
+      this._scheduleService.createCourseSchedule(courseSchedule).subscribe(data => {
+        alert('Course Schedule created')
+        this.courseScheduleForm.reset()
+      })
+
+
+    }
+  }
+  getDays() {
+    const scheduleData = []
+    if (this.courseScheduleForm.value.monday) {
+      scheduleData.push({
+        day: 'Monday',
+        startTime: this.courseScheduleForm.value.startTime!,
+        endTime: this.courseScheduleForm.value.endTime!,
+        room: this.courseScheduleForm.value.room!
+      })
+    }
+
+
+    if (this.courseScheduleForm.value.tuesday) {
+      scheduleData.push({
+        day: 'Tuesday',
+        startTime: this.courseScheduleForm.value.startTime!,
+        endTime: this.courseScheduleForm.value.endTime!,
+        room: this.courseScheduleForm.value.room!
+      })
+    }
+
+    if (this.courseScheduleForm.value.wednesday) {
+      scheduleData.push({
+        day: 'wednesday',
+        startTime: this.courseScheduleForm.value.startTime!,
+        endTime: this.courseScheduleForm.value.endTime!,
+        room: this.courseScheduleForm.value.room!
+      })
+    }
+
+    if (this.courseScheduleForm.value.thursday) {
+      scheduleData.push({
+        day: 'Thursday',
+        startTime: this.courseScheduleForm.value.startTime!,
+        endTime: this.courseScheduleForm.value.endTime!,
+        room: this.courseScheduleForm.value.room!
+      })
+    }
+
+    if (this.courseScheduleForm.value.friday) {
+      scheduleData.push({
+        day: 'Friday',
+        startTime: this.courseScheduleForm.value.startTime!,
+        endTime: this.courseScheduleForm.value.endTime!,
+        room: this.courseScheduleForm.value.room!
+      })
+    }
+    return scheduleData
+
+  }
 
   reload() {
     localStorage.removeItem('pageReloaded');
@@ -358,6 +449,7 @@ export class AdminComponent {
     localStorage.removeItem('pageReloaded');
     this.router.navigate(['']);
   }
+
 
 
 

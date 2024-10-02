@@ -17,7 +17,7 @@ This project was developed in an academic context as a project for the software 
 
 - Log in
 - Create student
--create teacher 
+- create teacher 
 - create staff
 - create assignment
 - create course 

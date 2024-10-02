@@ -42,40 +42,37 @@
             @if (option === '1') {
 
             <div class="div-chart">
-                <form action="" class="manage-form">
+                <form action="" class="manage-form" [formGroup]="courseScheduleForm">
                     <label for="c-subject-id">Subject ID</label>
-                    <input type="text" name="c-subject-id" id="c-subject-id">
-                    <label for="course-id">Course ID</label>
-                    <input type="text" name="course-id" id="course-id">
+                    <input type="text" name="c-subject-id" id="c-subject-id" formControlName="asId">
                     <label for="teacher-id">Teacher ID</label>
-                    <input type="text" name="teacher-id" id="teacher-id">
+                    <input type="text" name="teacher-id" id="teacher-id" formControlName="teacherId">
                     <label for="day">Day</label>
                     <div>
                         <label for="monday">Monday</label>
-                        <input type="checkbox" name="monday" id="monday">
+                        <input type="checkbox" name="monday" id="monday" formControlName="monday">
                         <br>
                         <label for="tuesday">Tuesday</label>
-                        <input type="checkbox" name="tuesday" id="tuesday">
+                        <input type="checkbox" name="tuesday" id="tuesday" formControlName="tuesday">
                         <br>
                         <label for="wednesday">Wednesday</label>
-                        <input type="checkbox" name="wednesday" id="wednesday">
+                        <input type="checkbox" name="wednesday" id="wednesday" formControlName="wednesday">
                         <br>
                         <label for="thursday">Thursday</label>
-                        <input type="checkbox" name="thursday" id="thursday">
+                        <input type="checkbox" name="thursday" id="thursday" formControlName="thursday">
                         <br>
                         <label for="friday">Friday</label>
-                        <input type="checkbox" name="friday" id="friday">
+                        <input type="checkbox" name="friday" id="friday" formControlName="friday">
                     </div>
                     <label for="start-time">Start Time</label>
-                    <input type="time" name="start-time" id="start-time">
+                    <input type="time" name="start-time" id="start-time" formControlName="startTime">
                     <label for="end-time">End Time</label>
-                    <input type="time" name="end-time" id="end-time">
+                    <input type="time" name="end-time" id="end-time" formControlName="endTime">
                     <label for="classroom">Classroom</label>
-                    <input type="text" name="classroom" id="classroom">
-                    <label for="schedule-id">Schedule ID</label>
-                    <input type="text" name="schedule-id" id="schedule-id">
+                    <input type="text" name="classroom" id="classroom" formControlName="room">
 
-                    <button type="button" class="staff-button" id="course-submit">Submit</button>
+                    <button type="button" class="staff-button" id="course-submit"
+                        (click)="saveCourseSchedule()">Submit</button>
                     <button type="button" class="staff-button" id="user-consult" (click)="option = '0'">cancel</button>
                 </form>
             </div>
