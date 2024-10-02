@@ -1,7 +1,31 @@
-# CRMWORLUNIVERSITY
+# CRMWORLDUNIVERSITY
 
 ## Description
  The Academic CRM is a web-based platform designed to enhance the relationship management between the university and its students, faculty, and administration. It streamlines academic processes, improving communication and tracking throughout students' educational journeys.
+
+ ## Table of Contents
+
+- [Description](#description)
+- [Dates](#dates)
+- [Purpose](#purpose)
+- [Functionalities](#functionalities)
+  - [Funciones básicas](#funciones-básicas)
+  - [Configuración avanzada](#configuración-avanzada)
+- [Main features](#main-features)
+- [Instructions for Use](#instructions-for-use)
+  - [Requirements](#requirements)
+  - [Installing](#installing)
+  - [Database Creation](#database-creation)
+  - [Sequelize synchronization](#Sequelize-synchronization)
+  - [Start Project](#start-project)
+- [Construction details](#construction-details)
+- [Resources used](#resources-used)
+- [Contributors](#contributors)
+- [Conctact](#conctact)
+
+
+
+
 
 ## Dates
 
