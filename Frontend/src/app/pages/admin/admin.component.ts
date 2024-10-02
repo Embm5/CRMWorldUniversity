@@ -303,16 +303,19 @@ export class AdminComponent {
 
   }
   saveAssignment() {
-    alert('enter to the assignment')
     if (this.assignmentForm.valid) {
-      alert('Creating Assignment...')
       const assignment: Assignment = {
         name: this.assignmentForm.value.name!,
         semester: this.assignmentForm.value.semester!
       }
       console.log(assignment)
       this._assignmentService.createAssignment(assignment).subscribe(data => {
-        alert('assignment created')
+        Swal.fire({
+          title: 'Assignment Created Successfully',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 1500
+        })
         this.assignmentForm.reset()
       })
 
@@ -322,9 +325,7 @@ export class AdminComponent {
 
   consultAssignment() {
     const asId = this.assignmentForm2.value.asId!;
-    alert('Assignment')
     if (this.assignmentForm2.valid) {
-      alert('Getting Assignment...')
       this._assignmentService.getAssignment(asId).subscribe({
         next: (data) => {
           this.assignmentFound = data
@@ -332,7 +333,12 @@ export class AdminComponent {
           console.log(this.assignmentFound)
         },
         error: (error: HttpErrorResponse) => {
-          alert('Assignment not found')
+          Swal.fire({
+            title: 'Assignment not found',
+            icon: 'error',
+            showConfirmButton: false,
+            timer: 1500
+          })
           this.assignmentFound = {}
         }
 

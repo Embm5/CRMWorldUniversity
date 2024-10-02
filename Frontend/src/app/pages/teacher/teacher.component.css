@@ -3,7 +3,8 @@
     display: flex;
     flex-direction: column;
     max-width: 600px;
-    margin: 0 auto; /* Centra el formulario */
+    margin: 0 auto;
+    /* Centra el formulario */
     padding: 2rem;
     border: 2px solid #003366;
     border-radius: 10px;
@@ -39,4 +40,153 @@
 /* Hover para botones */
 .admin-button:hover {
     background-color: #002244;
+}
+
+
+/* ----------------------------- */
+
+/* Estilo del formulario en chart-2 */
+#chart-2 .managecourse-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    /* Centra el formulario */
+    padding: 2rem;
+    border: 2px solid #003366;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para etiquetas */
+#chart-2 .managecourse-form label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+/* Estilo para campos de texto */
+#chart-2 .managecourse-form input {
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo para botones */
+.admin-button {
+    background-color: #003366;
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+/* Hover para botones */
+.admin-button:hover {
+    background-color: #002244;
+}
+
+#course-material-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#course-material-table th {
+    background-color: #003366FF;
+    color: white;
+    padding: 10px;
+}
+
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.student-table th,
+.student-table td {
+    padding: 12px;
+    border: 1px solid #040101;
+}
+
+.student-table th {
+    background-color: #003366FF;
+    color: #ddd;
+}
+
+.calendar {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    background-color: #fff;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+}
+
+.day {
+    padding: 10px;
+    font-weight: bold;
+    color: #003366;
+}
+
+.calendar-body {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 10px 0;
+}
+
+.date {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.date:hover {
+    background-color: #f0f0f0;
+}
+
+.pending {
+    background-color: #ffeb3b;
+    margin: 2px 0;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+#pendingForm {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+#pendingForm input {
+    padding: 5px;
+    margin-right: 10px;
 }

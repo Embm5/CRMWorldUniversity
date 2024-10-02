@@ -162,7 +162,7 @@ export class Credentialcontroller {
         return res.status(401).json({ err: 'Password incorrect' })
       }
       const rol = await getRol({ id: cred.personId })
-      const token = createToken({ data: { email: cred.email, rol } })
+      const token = createToken({ data: { email: cred.email, rol, id: cred.personId } })
       return res.json({ token, rol })
     } catch (error) {
       return res.status(500).json({ mesaage: error.message })
@@ -191,7 +191,8 @@ async function getRol ({ id }) {
 function createToken ({ data }) {
   const payLoad = {
     email: data.email,
-    rol: data.rol
+    rol: data.rol,
+    id: data.id
   }
   return jwt.sign(payLoad, process.env.SECRET_KEY)
 }
