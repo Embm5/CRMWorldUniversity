@@ -79,7 +79,7 @@
             }@else if (option === '2') {
             <form action="" class="manage-form" id="userForm" [formGroup]="courseScheduleForm2">
                 <label for="user-id">Name Course</label>
-                <input type="text" name="Course-id" id="assignment-id" formControlName="courseId">
+                <input type="text" name="Course-id" id="assignment-id" formControlName="courseId" title=".">
                 <button type="button" class="staff-button" id="user-submit"
                     (click)="consultCourseSchedule()">Submit</button>
 
@@ -147,7 +147,7 @@
                 <label for="subject-name">Subject Name</label>
                 <input type="text" name="subject-name" id="subject-name" formControlName="name">
                 <label for="subject-name">Semester</label>
-                <input type="text" name="semester-name" id="semester-name" formControlName="semester">
+                <input type="text" name="semester-name" id="semester-name" formControlName="semester" title=".">
                 <button type="button" class="staff-button" id="subject-submit"
                     (click)="saveAssignment()">Submit</button>
                 <button type="button" class="staff-button" id="user-consult" (click)="option = '0'">cancel</button>
@@ -155,7 +155,7 @@
             }@else if (option === '2') {
             <form action="" class="manage-form" id="userForm" [formGroup]="assignmentForm2">
                 <label for="user-id">ID</label>
-                <input type="text" name="asignment-id" id="assignment-id" formControlName="asId">
+                <input type="text" name="asignment-id" id="assignment-id" formControlName="asId" title=".">
                 <button type="button" class="staff-button" id="user-submit"
                     (click)="consultAssignment()">Submit</button>
 
@@ -246,14 +246,20 @@
             <h3>About Us</h3>
             <a href="../views/home/home.html">Home</a>
             <a href="../../views/home/home.html#mission">Mission</a>
-            <a href="../../views/home/home.html#vision">Vision</a>d
+            <a href="../../views/home/home.html#vision">Vision</a>
         </div>
         <div class="social">
             <h3>Our Social Networks</h3>
             <div class="icons">
-                <i class='bx bxl-facebook'></i>
-                <i class='bx bxl-youtube'></i>
-                <i class='bx bxl-instagram-alt'></i>
+                <a href="https://www.facebook.com/politecnicojic">
+                    <i class='bx bxl-facebook'></i>
+                </a>
+                <a href="https://www.youtube.com/@politecnicojic1964">
+                    <i class='bx bxl-youtube'></i>
+                </a>
+                <a href="https://www.instagram.com/politecnicojic/">
+                    <i class='bx bxl-instagram-alt'></i>
+                </a>
             </div>
         </div>
     </footer>

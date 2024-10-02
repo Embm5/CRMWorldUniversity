@@ -9,9 +9,6 @@
 - [Dates](#dates)
 - [Purpose](#purpose)
 - [Functionalities](#functionalities)
-  - [Funciones básicas](#funciones-básicas)
-  - [Configuración avanzada](#configuración-avanzada)
-- [Main features](#main-features)
 - [Instructions for Use](#instructions-for-use)
   - [Requirements](#requirements)
   - [Installing](#installing)
@@ -19,12 +16,13 @@
   - [Sequelize synchronization](#Sequelize-synchronization)
   - [Start Project](#start-project)
 - [Construction details](#construction-details)
+  - [Technologies Used](#technologies-used)
 - [Resources used](#resources-used)
 - [Contributors](#contributors)
 - [Conctact](#conctact)
 
 
-
+---
 
 
 ## Dates
@@ -115,6 +113,40 @@ This action only needs to be performed once!
 
 if you have already performed the previous steps, you can initialize the project by running `npm start` located in the project's main folder. then you can view the project with any browser by visiting
 http://localhost:4200/
+
+# Construction details
+The system follows a three-tier architecture (frontend, backend, database).
+
+- Frontend: A web application that directly interacts with users (students, admin, staff and teacher).
+- Backend: A REST API that processes requests and manages business logic.
+- Database: A relational database to store information about students, admin, staff and teacher.
+
+## Technologies Used
+Frontend
+- **Framework**: Angular  
+
+Backend
+- **Language**: Node.js with Express
+
+Database
+- **Relational database**: PostgreSQL
+
+---
+
+# Resources used
+
+- **Icons**: We used [Boxicons](https://boxicons.com/) for all the icons across the application. Boxicons is an easy-to-use, open-source library of icons perfect for modern web apps.
+
+- **Backend**: The server is built with [Node.js](https://nodejs.org/) and [Express](https://expressjs.com/), providing a robust REST API.
+
+- **Database**: We used [PostgreSQL](https://www.postgresql.org/) as our relational database. You can download and install it from the following links:
+  - [PostgreSQL Download](https://www.postgresql.org/download/)
+  - [PostgreSQL Documentation](https://www.postgresql.org/docs/)
+  
+- **Framework for Building Web Apps**: The project also includes [Angular](https://angular.io/) for building dynamic web applications. You can install Angular by following these links:
+  - [Angular CLI Installation Guide](https://angular.io/cli)
+  - [Angular Documentation](https://angular.io/docs)
+
 
 # Contributors
 
