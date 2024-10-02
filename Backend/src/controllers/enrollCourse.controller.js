@@ -4,6 +4,7 @@ import { Enroll } from '../models/enroll.model.js'
 import { Student } from '../models/student.model.js'
 import { Person } from '../models/person.model.js'
 import { EnrollCourse } from '../models/enrollCourse.model.js'
+import { Assignment } from '../models/assignment.model.js'
 
 export class EnrollCourseController {
   getAllEnrollCourses = async (req, res) => {
@@ -81,6 +82,10 @@ export class EnrollCourseController {
               {
                 model: CourseSchedule,
                 attributes: ['day', 'startTime', 'endTime', 'room']
+              },
+              {
+                model: Assignment,
+                attributes: ['name', 'semester']
               }
             ]
           }
@@ -90,7 +95,8 @@ export class EnrollCourseController {
       const response = enrollments.map(enrollment => ({
         courseId: enrollment.courseId,
         approved: enrollment.approved,
-        schedules: enrollment.Course.CourseSchedules
+        schedules: enrollment.Course.CourseSchedules,
+        subjectName: enrollment.Course.Assignment?.name
       }))
 
       res.status(200).json(response)
@@ -125,7 +131,6 @@ export class EnrollCourseController {
     try {
       const { studentId, courseId } = req.params
 
-      // Busca la inscripción activa del estudiante
       const studentEnroll = await Enroll.findOne({
         where: { studentId, status: 'ACTIVE' }
       })
@@ -144,6 +149,29 @@ export class EnrollCourseController {
 
       await enrollCourse.destroy()
       res.status(204).send()
+    } catch (error) {
+      return res.status(500).json({ message: error.message })
+    }
+  }
+
+  setAllEnrollsInactive = async (req, res) => {
+    try {
+      const activeEnrolls = await Enroll.findAll({
+        where: { status: 'ACTIVE' }
+      })
+
+      if (activeEnrolls.length === 0) {
+        return res.status(404).json({ message: 'No active enrollments found' })
+      }
+
+      await Promise.all(
+        activeEnrolls.map(async (enroll) => {
+          enroll.status = 'INACTIVE'
+          await enroll.save()
+        })
+      )
+
+      res.status(200).json({ message: 'All active enrollments have been set to INACTIVE' })
     } catch (error) {
       return res.status(500).json({ message: error.message })
     }
