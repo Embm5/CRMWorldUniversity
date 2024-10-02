@@ -64,6 +64,7 @@ export class AdminComponent {
     room: new FormControl('', Validators.required),
   }, { validators: this.maxSelectedDaysValidator(3) });
 
+
   getDaysControls(formGroup: FormGroup): AbstractControl[] {
     const controls = [
       formGroup.get('monday'),
@@ -84,9 +85,10 @@ export class AdminComponent {
     };
   }
 
-  scheduleConsultForm = new FormGroup({
+  courseScheduleForm2 = new FormGroup({
     courseId: new FormControl('', Validators.required)
   });
+  courseScheduleFound: any = {};
 
   scheduleFound: any = {};
 
@@ -431,8 +433,31 @@ export class AdminComponent {
       })
     }
     return scheduleData
-
   }
+  consultCourseSchedule() {
+    const courseId = Number(this.courseScheduleForm2.value.courseId)
+
+    if (this.courseScheduleForm2.valid) {
+      this._scheduleService.getCourseSchedule(courseId).subscribe({
+        next: (data) => {
+          this.courseScheduleFound = data;
+          this.option = '3';
+          console.log(this.courseScheduleFound);
+        },
+        error: (error: HttpErrorResponse) => {
+          Swal.fire({
+            title: 'Schedule not found',
+            icon: 'error',
+            showConfirmButton: false,
+            timer: 1500
+          });
+          this.courseScheduleFound = {};
+        }
+      });
+    }
+  }
+
+
 
   reload() {
     localStorage.removeItem('pageReloaded');

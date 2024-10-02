@@ -38,7 +38,7 @@ export class EnrollCourseController {
 
       const studentEnroll = await Enroll.findOne({ where: { studentId, status: 'ACTIVE' } })
       if (studentEnroll) {
-        return res.status(404).json({ message: 'Studen has already enroll' })
+        return res.status(404).json({ message: 'Student has already enroll' })
       }
       const newEnroll = await Enroll.create({
         studentId
@@ -64,13 +64,16 @@ export class EnrollCourseController {
     try {
       const { studentId } = req.params
 
-      const studentEnroll = await Enroll.findOne({ where: { studentId, status: 'ACTIVE' } })
+      const studentEnroll = await Enroll.findOne({
+        where: { studentId, status: 'ACTIVE' }
+      })
+
       if (!studentEnroll) {
-        return res.status(404).json({ message: 'Estudiante no encontrado o no activo' })
+        return res.status(404).json({ message: 'Student not found or inactive' })
       }
 
       const enrollments = await EnrollCourse.findAll({
-        where: { studentId },
+        where: { enrollID: studentEnroll.enrollID },
         include: [
           {
             model: Course,
@@ -122,12 +125,21 @@ export class EnrollCourseController {
     try {
       const { studentId, courseId } = req.params
 
+      // Busca la inscripción activa del estudiante
+      const studentEnroll = await Enroll.findOne({
+        where: { studentId, status: 'ACTIVE' }
+      })
+
+      if (!studentEnroll) {
+        return res.status(404).json({ message: 'Student not found or inactive' })
+      }
+
       const enrollCourse = await EnrollCourse.findOne({
-        where: { studentId, courseId }
+        where: { enrollID: studentEnroll.enrollID, courseId }
       })
 
       if (!enrollCourse) {
-        return res.status(404).json({ message: 'EnrollCourse no encontrado' })
+        return res.status(404).json({ message: 'EnrollCourse not found' })
       }
 
       await enrollCourse.destroy()

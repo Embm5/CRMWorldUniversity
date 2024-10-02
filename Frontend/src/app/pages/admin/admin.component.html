@@ -82,19 +82,22 @@
                 <label for="user-id">Course ID</label>
                 <input type="text" name="Course-id" id="assignment-id" formControlName="asId">
                 <button type="button" class="staff-button" id="user-submit"
-                    (click)="consultAssignment()">Submit</button>
+                    (click)="consultCourseSchedule()">Submit</button>
 
                 <button type="button" class="staff-button" id="user-consult" (click)="option = '0'">cancel</button>
             </form>
             }@else if (option === '3') {
-            <div class="data-display">
-                <h4>User</h4>
-                <p><strong>Asid:</strong> {{ assignmentFound.asId }}</p>
-                <p><strong>Name:</strong> {{ assignmentFound.name }}</p>
-                <p><strong>Semester:</strong> {{assignmentFound.semester }}</p>
-                <button type="button" class="staff-button" id="user-consult" (click)="option = '0'">cancel</button>
-                <button type="button" class="staff-button" id="user-submit" (click)="deleteAssignment()">delete</button>
-            </div>
+            <!-- <div class="data-display">
+                <h4>Course Schedule</h4>
+                <p><strong>Teacher ID:</strong> {{ courseScheduleFound.teacherId }}</p>
+                <p><strong>AS ID:</strong> {{ courseScheduleFound.asId }}</p>
+                [<p><strong>Days:</strong> {{ getSelectedDays(courseScheduleFound) }}</p>
+                <p><strong>Start Time:</strong> {{ courseScheduleFound.startTime }}</p>
+                <p><strong>End Time:</strong> {{ courseScheduleFound.endTime }}</p>
+                <p><strong>Room:</strong> {{ courseScheduleFound.room }}</p>
+                <button type="button" class="staff-button" id="cancel" (click)="option = '0'">Cancel</button>
+                <button type="button" class="staff-button" id="delete">Delete</button>
+            </div> -->
             }
 
         </section>
