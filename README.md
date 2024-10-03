@@ -54,7 +54,7 @@ If you want to run this repository in your local machine, you must follow the ne
 
 - Version **18.20.1** or higher of [Node.Js](https://nodejs.org/en) version is required.
 - This repository uses [PostgreSQL](https://www.postgresql.org/) as Database engine. for the installation we use the default DBMS of Postgres **PgAdmin4**
-- the project is developed using Angular version 18.0.0, so it is necessary to have angular/cli installed.
+- The project is developed using Angular version 18.0.0, so it is necessary to have angular/cli installed.
   you can install it using npm by executing the following command in some terminal:
   `npm install @angular/cli@18.0.0 -g`
 
@@ -72,30 +72,30 @@ otherwise, you can download the zip file of the project.
 
 First connect with postgres user or another user with superuser privileges, then in Login/Group roles, create new Login/Group
 
-![Create User](views/img/step1.png)
+![Create User](https://i.imgur.com/tYgl4Im.png)
 
 the user name is "CRMWU", in Definition put the password "1234" and configure the privileges.git
 
-![Admin User Name](views/img/step2.png)
-![Admin User Password](views/img/step3.png)
+![Admin User Name](https://i.imgur.com/ROUO91u.png)
+![Admin User Password](https://i.imgur.com/u8i1T20.png)
 
-![User Privileges](views/img/step4.png)
+![User Privileges](https://i.imgur.com/CNa94tW.png)
 
-once the user has been created, proceed to register a new server wiht the name "CRMWU_DB"
+once the user has been created, proceed to register a new server with the name "CRMWU_DB"
 
-![New server](views/img/step5.png)
+![New server](https://i.imgur.com/xKZDaws.png)
 
-![Register - Server](views/img/step6.png)
+![Register - Server](https://i.imgur.com/iPyKX5H.png)
 
 In connection configure the hostname, in username place the user previously created and the password
 
-![connection](views/img/step7.png)
+![connection](https://i.imgur.com/vIESJEM.png)
 
 Finally, proceed to create a new database with the name "CRMWU_DB" in the newly created server instance
 
-![Create DB](views/img/step8.png)
+![Create DB](https://i.imgur.com/3XpmS4t.png)
 
-![Create DB CRMWU_DB](views/img/step9.png)
+![Create DB CRMWU_DB](https://i.imgur.com/PCDGluY.png)
 
 ---
 
