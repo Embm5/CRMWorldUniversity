@@ -27,8 +27,8 @@
 
 ## Dates
 
-- Analysis:august 22, 2024
-- Design:august 24, 2024
+- Analysis: august 22, 2024
+- Design: august 24, 2024
 - Construction: september 1, 2024
 
 ## Purpose
